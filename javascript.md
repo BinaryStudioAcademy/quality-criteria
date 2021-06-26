@@ -429,6 +429,30 @@
       }
     ```
   </p>
+  <p>
+    Note: constants that are used in the same context, but has different purposes should be split into different enums or separate constants
+
+    Bad: 
+
+    ```typescript
+      const CompensationComputationConstants = {
+        HOLIDAY_COMPENSATION: 1.7,
+        OVERTIME_COMPENSATION: 1.5,
+        OVERTIME_THRESHOLD: 1.1 //related not to compensation rate, but to overtime hours calculation
+      } 
+    ```
+
+    Good:
+
+    ```typescript
+      const CompensationCoefficients = {
+        HOLIDAY_COMPENSATION: 1.7,
+        OVERTIME_COMPENSATION: 1.5
+      } 
+
+      const OVERTIME_THRESHOLD = 1.1
+    ```
+  </p> 
   </details>
 
 -
@@ -460,7 +484,7 @@
           this._privateName = name;
         }
 
-        _getPrivateName() {
+        getPrivateName() {
           return this._privateName;
         }
       }
@@ -472,7 +496,7 @@
           this.#privateName = name;
         }
 
-        _getPrivateName() {
+        getPrivateName() {
           return this.#privateName;
         }
       }
@@ -709,7 +733,7 @@
     </summary>
   <p>
 
-  The database shouldn't store passwords as clear text. The hash of the password is saved instead of passwords.
+  The database shouldn't store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
 
   </p>
   </details>
@@ -733,13 +757,19 @@
 -
   <details>
     <summary>
-      <b>A2.</b> Variables have abstract names and don't contain proper names.
+      <b>A2.</b> Abstract classes or interfaces should have generic names and don't contain implementation details. For concrete classes add implementation details if more than one implementation is possible, but also keep context details.
     </summary>
     <p>
 
     Bad:
 
     ```typescript
+      //Storage what? LocalStorage, FileStorage, Storage as an entity in your domain?
+      class Storage {
+        public getItem(location: string) {}
+      }
+
+      //Too concrete, requires knowing what S3 is, context derivation is required
       class S3 {
         public getItem(location: string) {}
       }
@@ -748,9 +778,20 @@
     Good:
 
     ```typescript
-      class Storage {
-        public getItem(location: string) {}
-      }
+    //Clear intent, this is infrastructural code
+    interface FileStorage{
+      getItem(location: string): Promise<Buffer>
+    }
+
+    //We know that this is an S3 implementation of FileStorage just by checking the name
+    class S3FileStorage implements FileStorage{
+      ...
+    }
+
+    //Although this does not implement any interface, other implementations are possible, so we add implementation details
+    class EuropeanCentralBankCurrencyConverter{
+      public getConversionRate(from: Currency, to: Currency);
+    }
     ```
 
   </p>
@@ -936,6 +977,25 @@
   ```
 
   </p>
+  <p>
+  Alternative naming(default function naming) MAY be applied to:
+  - Render props
+  - Injecting behavior via HOCs
+  - Explicit side-effect based calls(fetching data or direct DOM interactions)
+  - Injected functions that are not event handlers
+
+  ```typescript
+  //HOC and injected behavior
+  const ModalContainer = ({ModalBody}) => {
+    const [isOpen, setIsOpen] = React.useState(false)
+    const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen])
+    //some logic;
+    
+    //NOTE: closeModal MIGHT be used as a name in this case, but onClose would be ok too
+    return isOpen ? <ModalBody closeModal={handleClose} /> : null
+  } 
+  ```
+  </p>
   </details>
 
 -
@@ -1004,12 +1064,88 @@
   </p>
   </details>
 
+  -
+  <details>
+    <summary>
+      <b>A11.</b> When typescript is used, type-driven development is used as much as possible to ensure compile time safety. Compiler is always set to the strictest mode possible. Any use of `any` or other unsafe operations are commented. Spread is avoided for objects with methods.
+    </summary>
+  <p>
+
+  
+
+  Bad:
+
+  ```typescript
+  //Compiles, but causes a runtime error
+  const fooer = {
+    foo() {
+      console.log('I am fooer')
+    }
+  }
+  const fooerCopy = {...fooer}
+  fooerCopy.foo();
+
+  //Can be stricter, runtime check can be avoided
+  const languages = ['en', 'uk', 'ru', 'fr', 'de']
+  const localize = (key: string, language: string) => {
+    if(!languages.includes(language)){
+      throw new Error(`Language ${language} is not supported`);
+    }
+    // localization logic
+  }
+  ```
+
+  Good:
+
+  ```typescript
+  //compiles, no runtime error
+  const fooer = {
+    foo() {
+      console.log('I am fooer')
+    }
+  }
+  const fooerCopy = Object.assign({}, fooer)
+  fooerCopy.foo()
+
+  //Language is type-checked in compile time, unless unsafe cast is used
+  const languages = ['en', 'uk', 'ru', 'fr', 'de'] as const
+  type Language = typeof languages[number]; 
+  const localize = (key: string, language: Language) => {
+    // localization logic
+  }
+  ```
+
+  ```typescript
+    let greeting = 'Привет';
+
+    wizards.map((wizard) => {
+      greeting += `, ${wizard.name}`;
+    });
+
+    console.log(`${greeting}!`);
+  ```
+
+  Good:
+
+  ```typescript
+    const greeting = 'Привет';
+
+    const names = wizards.map((wizard) => {
+      return wizard.name;
+    });
+
+    console.log(`${greeting} ${names.join(', ')}!`);
+  ```
+
+  </p>
+  </details>
+
 ### A11y
 
 -
   <details>
     <summary>
-      <b>A11.</b> 🫂 All form controls are associated with a label.
+      <b>A12.</b> 🫂 All form controls are associated with a label.
     </summary>
   <p>
 
@@ -1041,7 +1177,7 @@
 -
   <details>
     <summary>
-      <b>A12.</b> 🫂 All buttons/links have a description.
+      <b>A13.</b> 🫂 All buttons/links have a description.
     </summary>
   <p>
 
@@ -1086,14 +1222,14 @@
 
 ### Modules
 
-- **A13.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
+- **A14.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
 
 ### Redundancy
 
 -
   <details>
     <summary>
-      <b>A14.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
+      <b>A15.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
     </summary>
   <p>
 
@@ -1121,7 +1257,64 @@
 -
   <details>
     <summary>
-      <b>A15.</b> Conditions are simplified.
+      <b>A15.1.</b> Where possible, an object is used instead of a `switch` statement.
+    </summary>
+
+    Bad:
+
+    ```typescript
+      const UserStatuses = {
+        active = 'active',
+        paused = 'paused',
+        deleted = 'deleted'
+      }
+
+      const getIndicatorColorFromUserStatus  = (status) => {
+        switch(status){
+          case UserStatuses.active: {
+            return 'green'
+          }
+          case UserStatuses.paused: {
+            return 'yellow'
+          }
+          case UserStatuses.deleted: {
+            return 'grey'
+          }
+          default: {
+            throw new Error(`Unknown status: ${status}`)
+          }
+        }
+      }
+    ```
+  
+    Good:
+  
+    ```typescript
+      const UserStatuses = {
+        active = 'active',
+        paused = 'paused',
+        deleted = 'deleted'
+      }
+
+      const UserStatusIndicatorColor = {
+        [UserStatuses.active]: 'green',
+        [UserStatuses.paused]: 'yellow',
+        [UserStatuses.deleted]: 'grey'
+      }
+
+      const getIndicatorColorFromUserStatus  = (status) => {
+        if(!UserStatusIndicatorColor[status]){
+          throw new Error(`Unknown status: ${status}`)
+        }
+        return UserStatusIndicatorColor[status];
+      }
+    ```
+  </details>
+
+-
+  <details>
+    <summary>
+      <b>A16.</b> Conditions are simplified.
     </summary>
   <p>
 
@@ -1155,7 +1348,7 @@
 -
   <details>
     <summary>
-      <b>A16.</b> To iterate over arrays and data structures that can be iterated over, (Iterable) use the <code>for .. of</code>.
+      <b>A17.</b> To iterate over arrays and data structures that can be iterated over, (Iterable) use the <code>for .. of</code>.
     </summary>
   <p>
 
@@ -1184,7 +1377,7 @@
 -
   <details>
     <summary>
-      <b>A17.</b> Changes are applied pointwise.
+      <b>A18.</b> Changes are applied pointwise.
     </summary>
   <p>
 
@@ -1221,12 +1414,12 @@
 
 ### Complexity and Readability.
 
-- **A18** Long functions and methods are split into several smaller ones.
+- **A19** Long functions and methods are split into several smaller ones.
 
 -
   <details>
     <summary>
-      <b>A19.</b> Iterators for arrays are used to work with JS collections.
+      <b>A20.</b> Iterators for arrays are used to work with JS collections.
     </summary>
   <p>
 
@@ -1238,6 +1431,47 @@
         console.log(element);
       });
     });
+  ```
+  </p>
+  </details>
+
+-
+  <details>
+    <summary>
+      <b>A21.</b> Cyclomatic complexity SHOULD be less than 5 and MUST be less than 7
+    </summary>
+  <p>
+
+  Bad:
+
+  ```typescript
+    const maxOfThree = (x, y, z) => {
+    if(!Number.isNaN(x) && !Number.isNaN(y) && !Number.isNaN(z)){
+        if(x > y){
+          if(x > z){
+            return x;
+          } else if(y > z){
+            return y;
+          } else {
+            return z;
+          }
+        }
+      } else {
+        throw new Error('x, y, and z MUST be numbers');
+      }
+    }
+  ```
+
+  Good:
+  ```typescript
+    const maxOfThree = (x, y, z) => {
+    const triplet = [x, y, z];
+    if(triplet.some(Number.isNaN)){
+      throw new Error('x, y, and z MUST be numbers');
+    }
+    return Math.max(...triplet);
+    //OR
+    return triplet.reduce((a, b) => a > b ? a : b);
   ```
   </p>
   </details>
