@@ -1446,7 +1446,7 @@
 
   ```typescript
     const maxOfThree = (x, y, z) => {
-    if(!Number.isNaN(x) && !Number.isNaN(y) && !Number.isNaN(z)){
+    if(!isNaN(x) && !isNaN(y) && !isNaN(z)){
         if(x > y){
           if(x > z){
             return x;
@@ -1466,7 +1466,7 @@
   ```typescript
     const maxOfThree = (x, y, z) => {
     const triplet = [x, y, z];
-    if(triplet.some(Number.isNaN)){
+    if(triplet.some(isNaN)){
       throw new Error('x, y, and z MUST be numbers');
     }
     return Math.max(...triplet);
