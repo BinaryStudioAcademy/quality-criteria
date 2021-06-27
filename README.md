@@ -5,5 +5,5 @@
 Set of rules that is required for the project
 
 - [JavaScript 🟨](./javascript.md)
-- [Java 🟥](./java.md)
+- [Java 🟥](./java/intro.md)
 - [.NET 🟦](./dotnet.md)
