@@ -435,7 +435,7 @@
     Bad: 
 
     ```typescript
-      const CompensationComputationConstants = {
+      const CompensationComputationConstant = {
         HOLIDAY_COMPENSATION: 1.7,
         OVERTIME_COMPENSATION: 1.5,
         OVERTIME_THRESHOLD: 1.1 //related not to compensation rate, but to overtime hours calculation
@@ -445,7 +445,7 @@
     Good:
 
     ```typescript
-      const CompensationCoefficients = {
+      const CompensationCoefficient = {
         HOLIDAY_COMPENSATION: 1.7,
         OVERTIME_COMPENSATION: 1.5
       } 
@@ -779,17 +779,17 @@
 
     ```typescript
     //Clear intent, this is infrastructural code
-    interface FileStorage{
+    interface FileStorage {
       getItem(location: string): Promise<Buffer>
     }
 
     //We know that this is an S3 implementation of FileStorage just by checking the name
-    class S3FileStorage implements FileStorage{
+    class S3FileStorage implements FileStorage {
       ...
     }
 
     //Although this does not implement any interface, other implementations are possible, so we add implementation details
-    class EuropeanCentralBankCurrencyConverter{
+    class EuropeanCentralBankCurrencyConverter {
       public getConversionRate(from: Currency, to: Currency);
     }
     ```
@@ -986,7 +986,7 @@
 
   ```typescript
   //HOC and injected behavior
-  const ModalContainer = ({ModalBody}) => {
+  const withModal = (ModalBody) => {
     const [isOpen, setIsOpen] = React.useState(false)
     const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen])
     //some logic;
@@ -1067,7 +1067,7 @@
   -
   <details>
     <summary>
-      <b>A11.</b> When typescript is used, type-driven development is used as much as possible to ensure compile time safety. Compiler is always set to the strictest mode possible. Any use of `any` or other unsafe operations are commented. Spread is avoided for objects with methods.
+      <b>🤓 A11.</b> When typescript(or other statical type checking system) is used, type-driven development is used as much as possible to ensure compile time safety. Compiler is always set to the strictest mode possible. Any use of `any` or other unsafe operations are commented. Spread is avoided for objects with methods.
     </summary>
   <p>
 
@@ -1086,9 +1086,9 @@
   fooerCopy.foo();
 
   //Can be stricter, runtime check can be avoided
-  const languages = ['en', 'uk', 'ru', 'fr', 'de']
+  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de']
   const localize = (key: string, language: string) => {
-    if(!languages.includes(language)){
+    if(!LANGUAGES.includes(language)){
       throw new Error(`Language ${language} is not supported`);
     }
     // localization logic
@@ -1108,33 +1108,11 @@
   fooerCopy.foo()
 
   //Language is type-checked in compile time, unless unsafe cast is used
-  const languages = ['en', 'uk', 'ru', 'fr', 'de'] as const
-  type Language = typeof languages[number]; 
+  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'] as const
+  type Language = typeof LANGUAGES[number]; 
   const localize = (key: string, language: Language) => {
     // localization logic
   }
-  ```
-
-  ```typescript
-    let greeting = 'Привет';
-
-    wizards.map((wizard) => {
-      greeting += `, ${wizard.name}`;
-    });
-
-    console.log(`${greeting}!`);
-  ```
-
-  Good:
-
-  ```typescript
-    const greeting = 'Привет';
-
-    const names = wizards.map((wizard) => {
-      return wizard.name;
-    });
-
-    console.log(`${greeting} ${names.join(', ')}!`);
   ```
 
   </p>
@@ -1263,21 +1241,21 @@
     Bad:
 
     ```typescript
-      const UserStatuses = {
-        active = 'active',
-        paused = 'paused',
-        deleted = 'deleted'
+      const UserStatus = {
+        ACTIVE = 'active',
+        PAUSED = 'paused',
+        DELETED = 'deleted'
       }
 
       const getIndicatorColorFromUserStatus  = (status) => {
         switch(status){
-          case UserStatuses.active: {
+          case UserStatuses.ACTIVE: {
             return 'green'
           }
-          case UserStatuses.paused: {
+          case UserStatuses.PAUSED: {
             return 'yellow'
           }
-          case UserStatuses.deleted: {
+          case UserStatuses.DELETED: {
             return 'grey'
           }
           default: {
@@ -1291,22 +1269,23 @@
   
     ```typescript
       const UserStatuses = {
-        active = 'active',
-        paused = 'paused',
-        deleted = 'deleted'
+        ACTIVE = 'active',
+        PAUSED = 'paused',
+        DELETED = 'deleted'
       }
 
       const UserStatusIndicatorColor = {
-        [UserStatuses.active]: 'green',
-        [UserStatuses.paused]: 'yellow',
-        [UserStatuses.deleted]: 'grey'
+        [UserStatuses.ACTIVE]: 'green',
+        [UserStatuses.PAUSED]: 'yellow',
+        [UserStatuses.DELETED]: 'grey'
       }
 
       const getIndicatorColorFromUserStatus  = (status) => {
-        if(!UserStatusIndicatorColor[status]){
+        const color = UserStatusIndicatorColor[status]
+        if(!UserStatusIndicatorColor[status]) {
           throw new Error(`Unknown status: ${status}`)
         }
-        return UserStatusIndicatorColor[status];
+        return UserStatusIndicatorColor[status]
       }
     ```
   </details>
@@ -1449,15 +1428,15 @@
     if(!isNaN(x) && !isNaN(y) && !isNaN(z)){
         if(x > y){
           if(x > z){
-            return x;
+            return x
           } else if(y > z){
-            return y;
+            return y
           } else {
-            return z;
+            return z
           }
         }
       } else {
-        throw new Error('x, y, and z MUST be numbers');
+        throw new Error('x, y, and z MUST be numbers')
       }
     }
   ```
@@ -1465,13 +1444,14 @@
   Good:
   ```typescript
     const maxOfThree = (x, y, z) => {
-    const triplet = [x, y, z];
-    if(triplet.some(isNaN)){
-      throw new Error('x, y, and z MUST be numbers');
+      const triplet = [x, y, z];
+      if(triplet.some(isNaN)){
+        throw new Error('x, y, and z MUST be numbers')
+      }
+      return Math.max(...triplet)
+      //OR
+      return triplet.reduce((a, b) => a > b ? a : b)
     }
-    return Math.max(...triplet);
-    //OR
-    return triplet.reduce((a, b) => a > b ? a : b);
   ```
   </p>
   </details>
