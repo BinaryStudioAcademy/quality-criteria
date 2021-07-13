@@ -22,5 +22,5 @@
     - <i>SEC</i> - <a href ='./security.md'>Security</a>. Generic and Java-specific security-related advices;
     - <i>MISC</i> - <a href ='./misc.md'>Miscellaneous</a>. Performance, UX, monitoring and other best practices, but are out of scope of this;
 
-    Mandatory rules are prefixed with <i>M</i>, e.g. <i>M-CLS-5</i> is a mandatory rule #5 from Class section, while <i>MISC-3</i> is an optional rule from Miscellaneous section. 
+    Mandatory rules are prefixed with <i>M</i>, e.g. <i>M-CLS-5</i> is a mandatory rule #5 from Class section, while <i>MISC-3</i> is an optional rule from Miscellaneous section.
 </details>

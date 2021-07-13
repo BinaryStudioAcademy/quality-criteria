@@ -30,7 +30,7 @@
             </summary>
             <p>
                 When writing public codebase, keep classes not sealed, control access via class visibility and use `final` only if you have to expose class and it must not be modified. This will allow users of your library extend and modify your classes without major hacks(but this is still undesired).
-                When writing private codebase, use `final` keyword on a class by default. Remove it only when a class is extended. 
+                When writing private codebase, use `final` keyword on a class by default. Remove it only when a class is extended.
             </p>
         </details>
     <li>
@@ -40,14 +40,14 @@
                 <b>CLS-4.</b> Prefer generics over several classes.
             </summary>
             <p>
-                If behavior can be described with generics, prefer it over creating several instances of classes, UNLESS it requires reflection to implement 
+                If behavior can be described with generics, prefer it over creating several instances of classes, UNLESS it requires reflection to implement
             </p>
         </details>
     <li>
     <li>
         <details>
             <summary>
-                <b>CLS-5.</b> Prefer several specific interfaces over one generic interface. 
+                <b>CLS-5.</b> Prefer several specific interfaces over one generic interface.
             </summary>
             <p>
                 Decompose with your best judgement. This will allow you to meet Interface Segregation Principle requirements and partially help you with Single Responsibility Principle.
@@ -87,7 +87,7 @@
                 <b>CLS-6.</b> Prefer generics over several classes.
             </summary>
             <p>
-                If behavior can be described with generics, prefer it over creating several instances of classes, UNLESS it requires reflection to implement 
+                If behavior can be described with generics, prefer it over creating several instances of classes, UNLESS it requires reflection to implement
             </p>
         </details>
     <li>

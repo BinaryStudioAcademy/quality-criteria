@@ -79,7 +79,7 @@
                 <b>M-FUNC-8.</b> Prefer stream API over imperative APIs for mapping, filtering, sorting.
             </summary>
             <p>
-                They are more neat and can be parallelized on demand. An exception is `reduce`. Either move reduce callbacks to separate functions, use one-liner callbacks or use for each loop. 
+                They are more neat and can be parallelized on demand. An exception is `reduce`. Either move reduce callbacks to separate functions, use one-liner callbacks or use for each loop.
             </p>
         </details>
     </li>

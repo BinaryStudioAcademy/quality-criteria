@@ -66,13 +66,13 @@
   <b>B13.</b> Only methods that are used in other classes should be marked as `public`. All implementation details should be in `private` methods.
 
 -
-  <b>B14.</b> Use Lombok for trivial `constructors`, `builder` implementation, `toString`, `equals`, `hashCode`, `getters` and `setters`. 
+  <b>B14.</b> Use Lombok for trivial `constructors`, `builder` implementation, `toString`, `equals`, `hashCode`, `getters` and `setters`.
 
 -
   <b>B15.</b> Prefer forEach loop while iterating over the collection.
 
 -
-  <b>B16.</b> There should not be empty `catch` blocks. 
+  <b>B16.</b> There should not be empty `catch` blocks.
 
 
 ### Rubbish

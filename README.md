@@ -4,7 +4,7 @@
 
 Set of rules that is required for the project
 
-- [JavaScript 🟨](./javascript.md)
-- [Java 🟥](./java/intro.md)
-- [.NET 🟦](./dotnet.md)
-- [QA 🟩](./qa.md)
+- [JavaScript 🟨](./source/javascript.md)
+- [Java 🟥](./source/java/intro.md)
+- [.NET 🟦](./source/dotnet.md)
+- [QA 🟩](./source/qa.md)

@@ -41,7 +41,7 @@
     <li>
         <details>
             <summary>
-                <b>M-B-4.</b> App shutdown is handled gracefully. 
+                <b>M-B-4.</b> App shutdown is handled gracefully.
             </summary>
             <p>
                 All connections are properly closed, allocated resources are released, shutdown reason is written into the log and meaningful status code is returned to the OS
@@ -51,7 +51,7 @@
     <li>
         <details>
             <summary>
-                <b>M-B-5.</b> Log messages are informative and processable. 
+                <b>M-B-5.</b> Log messages are informative and processable.
             </summary>
             <p>
                 No redundant messages are logged(e.g. "Got this far!") in production. Log messages are clear and provide context details if necessary. If logs will be gathered by third party tools they are in machine-processable format(e.g. JSON or XML).
@@ -61,7 +61,7 @@
     <li>
         <details>
             <summary>
-                <b>M-B-6.</b> Proper quality verifications mechanisms are in place. 
+                <b>M-B-6.</b> Proper quality verifications mechanisms are in place.
             </summary>
             <p>
                 Quality checking process should be as much automated as possible, to reduce amount of time that is required by code owners to review and merge changes into the codebase. Proper CI pipeline should be in place to give immediate feedback, on commit/push hooks should be setup in VCS to give feedback before code was even pushed to the remote.
@@ -71,7 +71,7 @@
     <li>
         <details>
             <summary>
-                <b>M-B-7.</b> Linter. 
+                <b>M-B-7.</b> Linter.
             </summary>
             <p>
                 Linter(statical code analyzer) and formatter is used to increase and automate code quality. Formatting style is uniform.d

@@ -29,7 +29,7 @@
                 <b>M-SEC-3.</b> Authorization.
             </summary>
             <p>
-                Authorize requests. Prefer capability-based authorization that is NOT DEPENDENT ON EXTERNAL FRAMEWORK, for example <a href="https://fsharpforfunandprofit.com/posts/capability-based-security/">this approach</href>. 
+                Authorize requests. Prefer capability-based authorization that is NOT DEPENDENT ON EXTERNAL FRAMEWORK, for example <a href="https://fsharpforfunandprofit.com/posts/capability-based-security/">this approach</href>.
             </p>
         </details>
     </li>
