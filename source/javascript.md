@@ -1064,7 +1064,7 @@
   </p>
   </details>
 
-  -
+-
   <details>
     <summary>
       <b>🤓 A11.</b> When typescript(or other statical type checking system) is used, type-driven development is used as much as possible to ensure compile time safety. Compiler is always set to the strictest mode possible. Any use of `any` or other unsafe operations are commented. Spread is avoided for objects with methods.
