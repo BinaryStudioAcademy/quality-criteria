@@ -432,14 +432,14 @@
   <p>
     Note: constants that are used in the same context, but has different purposes should be split into different enums or separate constants
 
-    Bad: 
+    Bad:
 
     ```typescript
-      const CompensationComputationConstant = {
+      const CompensationComputation = {
         HOLIDAY_COMPENSATION: 1.7,
         OVERTIME_COMPENSATION: 1.5,
-        OVERTIME_THRESHOLD: 1.1 //related not to compensation rate, but to overtime hours calculation
-      } 
+        OVERTIME_THRESHOLD: 1.1, //related not to compensation rate, but to overtime hours calculation
+      }
     ```
 
     Good:
@@ -447,12 +447,12 @@
     ```typescript
       const CompensationCoefficient = {
         HOLIDAY_COMPENSATION: 1.7,
-        OVERTIME_COMPENSATION: 1.5
-      } 
+        OVERTIME_COMPENSATION: 1.5,
+      }
 
-      const OVERTIME_THRESHOLD = 1.1
+      const OVERTIME_THRESHOLD = 1.1,
     ```
-  </p> 
+  </p>
   </details>
 
 -
@@ -984,16 +984,16 @@
   - Explicit side-effect based calls(fetching data or direct DOM interactions)
   - Injected functions that are not event handlers
 
-  ```typescript
+  ```tsx
   //HOC and injected behavior
   const withModal = (ModalBody) => {
-    const [isOpen, setIsOpen] = React.useState(false)
-    const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen])
+    const [isOpen, setIsOpen] = React.useState(false);
+    const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen]);
     //some logic;
-    
+
     //NOTE: closeModal MIGHT be used as a name in this case, but onClose would be ok too
-    return isOpen ? <ModalBody closeModal={handleClose} /> : null
-  } 
+    return isOpen ? <ModalBody closeModal={handleClose} /> : null;
+  }
   ```
   </p>
   </details>
@@ -1005,7 +1005,7 @@
     </summary>
   <p>
 
-  ```html
+  ```jsx
   const Dashboard = () => {
     const handleBtnClick = () => {};
 
@@ -1071,7 +1071,7 @@
     </summary>
   <p>
 
-  
+
 
   Bad:
 
@@ -1079,16 +1079,16 @@
   //Compiles, but causes a runtime error
   const fooer = {
     foo() {
-      console.log('I am fooer')
-    }
-  }
-  const fooerCopy = {...fooer}
+      console.log('I am fooer');
+    },
+  };
+  const fooerCopy = {...fooer};
   fooerCopy.foo();
 
   //Can be stricter, runtime check can be avoided
-  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de']
+  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'];
   const localize = (key: string, language: string) => {
-    if(!LANGUAGES.includes(language)){
+    if (!LANGUAGES.includes(language)) {
       throw new Error(`Language ${language} is not supported`);
     }
     // localization logic
@@ -1101,15 +1101,15 @@
   //compiles, no runtime error
   const fooer = {
     foo() {
-      console.log('I am fooer')
-    }
-  }
-  const fooerCopy = Object.assign({}, fooer)
-  fooerCopy.foo()
+      console.log('I am fooer');
+    },
+  };
+  const fooerCopy = Object.assign({}, fooer);
+  fooerCopy.foo();
 
   //Language is type-checked in compile time, unless unsafe cast is used
-  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'] as const
-  type Language = typeof LANGUAGES[number]; 
+  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'] as const;
+  type Language = typeof LANGUAGES[number];
   const localize = (key: string, language: Language) => {
     // localization logic
   }
@@ -1235,57 +1235,59 @@
 -
   <details>
     <summary>
-      <b>A15.1.</b> Where possible, an object is used instead of a `switch` statement.
+      <b>A15.1.</b> Where possible, an object is used instead of a `switch` statement  (the map data structure).
     </summary>
 
     Bad:
 
     ```typescript
       const UserStatus = {
-        ACTIVE = 'active',
-        PAUSED = 'paused',
-        DELETED = 'deleted'
-      }
+        ACTIVE: 'active',
+        PAUSED: 'paused',
+        DELETED: 'deleted',
+      } as const;
 
-      const getIndicatorColorFromUserStatus  = (status) => {
-        switch(status){
+      const getIndicatorColorFromUserStatus = (status) => {
+        switch(status) {
           case UserStatuses.ACTIVE: {
-            return 'green'
+            return 'green';
           }
           case UserStatuses.PAUSED: {
-            return 'yellow'
+            return 'yellow';
           }
           case UserStatuses.DELETED: {
-            return 'grey'
+            return 'grey';
           }
           default: {
-            throw new Error(`Unknown status: ${status}`)
+            throw new Error(`Unknown status: ${status}`);
           }
         }
       }
     ```
-  
+
     Good:
-  
+
     ```typescript
-      const UserStatuses = {
-        ACTIVE = 'active',
-        PAUSED = 'paused',
-        DELETED = 'deleted'
+      const UserStatus = {
+        ACTIVE: 'active',
+        PAUSED: 'paused',
+        DELETED: 'deleted',
       }
 
-      const UserStatusIndicatorColor = {
+      const userStatusToColor = {
         [UserStatuses.ACTIVE]: 'green',
         [UserStatuses.PAUSED]: 'yellow',
         [UserStatuses.DELETED]: 'grey'
       }
 
       const getIndicatorColorFromUserStatus  = (status) => {
-        const color = UserStatusIndicatorColor[status]
-        if(!UserStatusIndicatorColor[status]) {
+        const color = userStatusToColor[status];
+
+        if (!color) {
           throw new Error(`Unknown status: ${status}`)
         }
-        return UserStatusIndicatorColor[status]
+
+        return color;
       }
     ```
   </details>
@@ -1425,18 +1427,18 @@
 
   ```typescript
     const maxOfThree = (x, y, z) => {
-    if(!isNaN(x) && !isNaN(y) && !isNaN(z)){
-        if(x > y){
-          if(x > z){
-            return x
-          } else if(y > z){
-            return y
+    if (!isNaN(x) && !isNaN(y) && !isNaN(z)) {
+        if (x > y) {
+          if (x > z) {
+            return x;
+          } else if (y > z ) {
+            return y;
           } else {
-            return z
+            return z;
           }
         }
       } else {
-        throw new Error('x, y, and z MUST be numbers')
+        throw new Error('x, y, and z MUST be numbers');
       }
     }
   ```
@@ -1445,12 +1447,14 @@
   ```typescript
     const maxOfThree = (x, y, z) => {
       const triplet = [x, y, z];
-      if(triplet.some(isNaN)){
-        throw new Error('x, y, and z MUST be numbers')
+
+      if (triplet.some(isNaN)) {
+        throw new Error('x, y, and z MUST be numbers');
       }
-      return Math.max(...triplet)
+
+      return Math.max(...triplet);
       //OR
-      return triplet.reduce((a, b) => a > b ? a : b)
+      return triplet.reduce((a, b) => a > b ? a : b);
     }
   ```
   </p>
