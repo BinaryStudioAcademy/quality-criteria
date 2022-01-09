@@ -26,12 +26,14 @@
     </p>
   </details>
 
+- **B3**. The code is cross-browser and does not cause errors in different browsers and different operating systems.
+
 ### Naming
 
 -
   <details>
   <summary>
-    <b>B3.</b> Names of variables, parameters, properties and methods begin with a lowercase letter and are written in <code>lowerCamelCase</code> notation.
+    <b>B4.</b> Names of variables, parameters, properties and methods begin with a lowercase letter and are written in <code>lowerCamelCase</code> notation.
   </summary>
   <p>
     `Enums`, <code>Classes</code> and <code>Types</code> are exceptions.
@@ -41,7 +43,7 @@
 -
   <details>
     <summary>
-      <b>B4.</b> English nouns are used as variable and property names.
+      <b>B5.</b> English nouns are used as variable and property names.
     </summary>
   <p>
     Abbreviations in words are prohibited. Abbreviated variable names can be used only if the name is common (<code>err</code>, <code>xhr</code>, <code>evt</code>, <code>src</code>, <code>i</code> and etc).
@@ -51,7 +53,7 @@
 -
   <details>
     <summary>
-      <b>B5.</b> Arrays are named plural nouns.
+      <b>B6.</b> Arrays are named plural nouns.
     </summary>
   <p>
 
@@ -84,7 +86,7 @@
 -
   <details>
     <summary>
-      <b>B6.</b> Boolean variables start with a prefix that can be answered with "yes".
+      <b>B7.</b> Boolean variables start with a prefix that can be answered with "yes".
     </summary>
   <p>
 
@@ -121,7 +123,7 @@
 -
   <details>
     <summary>
-      <b>B7.</b> Function or method begins with a verb.
+      <b>B8.</b> Function or method begins with a verb.
     </summary>
   <p>
 
@@ -169,7 +171,7 @@
 -
   <details>
     <summary>
-      <b>B8.</b> Constant names are written in capital letters.
+      <b>B9.</b> Constant names are written in capital letters.
     </summary>
   <p>
 
@@ -185,7 +187,7 @@
 -
   <details>
     <summary>
-      <b>B9.</b> Variable names do not use the data type.
+      <b>B10.</b> Variable names do not use the data type.
     </summary>
   <p>
 
@@ -216,24 +218,41 @@
 -
   <details>
     <summary>
-      <b>B10.</b> The name of classes and enums begins with a capital letter. The name uses English nouns. Enumeration values are declared as constants.
+      <b>B11.</b> Classes are named with English nouns. The class name starts with a capital letter.
     </summary>
   <p>
 
     Bad:
 
     ```typescript
-      // class
       class wizard {};
+    ```
 
-      // enum
+    Good:
+
+    ```typescript
+      // class
+      class Wizard {};
+    ```
+  </p>
+  </details>
+
+-
+  <details>
+    <summary>
+      <b>B12.</b> Enums are named by English nouns and begin with an uppercase (capital) letter. Keys are declared in constant format (with uppercase letters)
+    </summary>
+  <p>
+
+    Bad:
+
+    ```typescript
       const statusCodes = {
         ok: 200,
         notFound: 404,
         badRequest: 400,
       };
 
-      // also enum
       enum STATUS_CODE {
         Ok = 200,
         NotFound = 404,
@@ -244,17 +263,12 @@
     Good:
 
     ```typescript
-      // class
-      class Wizard {};
-
-      // enum
       const StatusCode = {
         OK: 200,
         NOT_FOUND: 404,
         BAD_REQUEST: 400,
       };
 
-      // enum
       enum StatusCode {
         OK = 200,
         NOT_FOUND = 404,
@@ -267,7 +281,7 @@
 -
   <details>
     <summary>
-      <b>B11.</b> File/folder names are written in lowercase letters. Words are separated by hyphens.
+      <b>B13.</b> File/folder names are written in lowercase letters. Words are separated by hyphens.
     </summary>
   <p>
 
@@ -294,7 +308,7 @@
 -
   <details>
   <summary>
-    <b>B12.</b> Curly braces are required everywhere.
+    <b>B14.</b> Curly braces are required everywhere.
   </summary>
   <p>
 
@@ -353,7 +367,7 @@
 -
   <details>
     <summary>
-      <b>B13.</b> The code matches the style of the project.
+      <b>B15.</b> The code matches the style of the project.
     </summary>
   <p>
 
@@ -366,7 +380,7 @@
 -
   <details>
     <summary>
-      <b>B14.</b> All source files follow the recommended structure.
+      <b>B16.</b> All source files follow the recommended structure.
     </summary>
   <p>
 
@@ -399,7 +413,7 @@
 -
   <details>
     <summary>
-      <b>B15.</b> Sets of constants of the same type are collected into Enums.
+      <b>B17.</b> Sets of constants of the same type are collected into Enums.
     </summary>
   <p>
 
@@ -458,7 +472,7 @@
 -
   <details>
     <summary>
-      <b>B16.</b> Class properties and methods are marked.
+      <b>B18.</b> Class properties and methods are marked.
     </summary>
   <p>
 
@@ -523,7 +537,7 @@
 -
   <details>
     <summary>
-      <b>B17.</b> The versions of dependencies used are fixed in <code>package.json</code>.
+      <b>B19.</b> The versions of dependencies used are fixed in <code>package.json</code>.
     </summary>
   <p>
 
@@ -535,7 +549,7 @@
 -
   <details>
     <summary>
-      <b>B18.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
+      <b>B20.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
     </summary>
   <p>
   There are no script files that are "dead code" that is never executed.
@@ -547,7 +561,7 @@
 -
   <details>
     <summary>
-      <b>B19.</b> Constants and enums aren't redefined anywhere in the code.
+      <b>B21.</b> Constants and enums aren't redefined anywhere in the code.
     </summary>
   <p>
   Constants and enum are read-only and are never redefined.
@@ -557,7 +571,7 @@
 -
   <details>
     <summary>
-      <b>B20.</b> Strict mode is on.
+      <b>B22.</b> Strict mode is on.
     </summary>
   <p>
 
@@ -569,7 +583,7 @@
 -
   <details>
     <summary>
-      <b>B21.</b> Potentially incorrect operations are missing.
+      <b>B23.</b> Potentially incorrect operations are missing.
     </summary>
   <p>
 
@@ -608,7 +622,7 @@
 -
   <details>
     <summary>
-      <b>B22.</b> Modules do not export mutable variables.
+      <b>B24.</b> Modules do not export mutable variables.
     </summary>
   <p>
 
@@ -636,7 +650,7 @@
 -
   <details>
     <summary>
-      <b>B23.</b> The name of the module corresponds to its content.
+      <b>B25.</b> The name of the module corresponds to its content.
     </summary>
   <p>
 
@@ -648,7 +662,7 @@
 -
   <details>
     <summary>
-      <b>B24.</b> No logic in <code>index</code> files.
+      <b>B26.</b> No logic in <code>index</code> files.
     </summary>
   <p>
 
@@ -675,10 +689,6 @@
 
   </p>
   </details>
-
-### Flexibility
-
-- **B26**. The code is cross-browser and does not cause errors in different browsers and different operating systems.
 
 ### Magic
 
@@ -1064,66 +1074,12 @@
   </p>
   </details>
 
--
-  <details>
-    <summary>
-      <b>🤓 A11.</b> When typescript(or other statical type checking system) is used, type-driven development is used as much as possible to ensure compile time safety. Compiler is always set to the strictest mode possible. Any use of `any` or other unsafe operations are commented. Spread is avoided for objects with methods.
-    </summary>
-  <p>
-
-
-
-  Bad:
-
-  ```typescript
-  //Compiles, but causes a runtime error
-  const fooer = {
-    foo() {
-      console.log('I am fooer');
-    },
-  };
-  const fooerCopy = {...fooer};
-  fooerCopy.foo();
-
-  //Can be stricter, runtime check can be avoided
-  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'];
-  const localize = (key: string, language: string) => {
-    if (!LANGUAGES.includes(language)) {
-      throw new Error(`Language ${language} is not supported`);
-    }
-    // localization logic
-  }
-  ```
-
-  Good:
-
-  ```typescript
-  //compiles, no runtime error
-  const fooer = {
-    foo() {
-      console.log('I am fooer');
-    },
-  };
-  const fooerCopy = Object.assign({}, fooer);
-  fooerCopy.foo();
-
-  //Language is type-checked in compile time, unless unsafe cast is used
-  const LANGUAGES = ['en', 'uk', 'ru', 'fr', 'de'] as const;
-  type Language = typeof LANGUAGES[number];
-  const localize = (key: string, language: Language) => {
-    // localization logic
-  }
-  ```
-
-  </p>
-  </details>
-
 ### A11y
 
 -
   <details>
     <summary>
-      <b>A12.</b> 🫂 All form controls are associated with a label.
+      <b>A11.</b> 🫂 All interactive elements have a description.
     </summary>
   <p>
 
@@ -1131,42 +1087,11 @@
 
   ```html
   <input placeholder="First Name">
-  ```
 
-  Good:
-
-  ```html
-  <label class="visually-hidden" for="first-name">First name</label>
-  <input id="first-name" placeholder="First Name">
-
-  <! -- or -->
-  <label>
-    <span class="visually-hidden">First name</span>
-    <input placeholder="First Name">
-  </label>
-
-  <! -- or -->
-  <input aria-label="First name" placeholder="First Name">
-  ```
-
-  </p>
-  </details>
-
--
-  <details>
-    <summary>
-      <b>A13.</b> 🫂 All buttons/links have a description.
-    </summary>
-  <p>
-
-  Bad:
-
-  ```html
   <button onClick={handleEditUserClick}></button>
 
   <a href={AppRoute.DASHBOARD}></a>
 
-  <! -- or -->
   <button onClick={handleEditUserClick}><img src="img/user.svg" /></button>
 
   <a href={AppRoute.DASHBOARD}><img src="img/arrow.svg" /></a>
@@ -1175,6 +1100,9 @@
   Good:
 
   ```html
+  <label class="visually-hidden" for="first-name">First name</label>
+  <input id="first-name" placeholder="First Name">
+
   <button onClick={handleEditUserClick}>
     <span className="visually-hidden">Edit user</span>
   </button>
@@ -1183,7 +1111,11 @@
     <span className="visually-hidden">Go to dashboard</span>
   </a>
 
-  <! -- or -->
+  <label>
+    <span class="visually-hidden">First name</span>
+    <input placeholder="First Name">
+  </label>
+
   <button onClick={handleEditUserClick}>
     <img src="img/user.svg" alt="" />
     <span className="visually-hidden">Edit user</span>
@@ -1193,6 +1125,8 @@
     <img src="img/arrow.svg" alt="" />
     <span className="visually-hidden">Go to dashboard</span>
   </a>
+
+  <input aria-label="First name" placeholder="First Name">
   ```
 
   </p>
@@ -1200,14 +1134,14 @@
 
 ### Modules
 
-- **A14.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
+- **A12.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
 
 ### Redundancy
 
 -
   <details>
     <summary>
-      <b>A15.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
+      <b>A13.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
     </summary>
   <p>
 
@@ -1235,67 +1169,7 @@
 -
   <details>
     <summary>
-      <b>A15.1.</b> Where possible, an object is used instead of a `switch` statement  (the map data structure).
-    </summary>
-
-    Bad:
-
-    ```typescript
-      const UserStatus = {
-        ACTIVE: 'active',
-        PAUSED: 'paused',
-        DELETED: 'deleted',
-      } as const;
-
-      const getIndicatorColorFromUserStatus = (status) => {
-        switch(status) {
-          case UserStatuses.ACTIVE: {
-            return 'green';
-          }
-          case UserStatuses.PAUSED: {
-            return 'yellow';
-          }
-          case UserStatuses.DELETED: {
-            return 'grey';
-          }
-          default: {
-            throw new Error(`Unknown status: ${status}`);
-          }
-        }
-      }
-    ```
-
-    Good:
-
-    ```typescript
-      const UserStatus = {
-        ACTIVE: 'active',
-        PAUSED: 'paused',
-        DELETED: 'deleted',
-      }
-
-      const userStatusToColor = {
-        [UserStatuses.ACTIVE]: 'green',
-        [UserStatuses.PAUSED]: 'yellow',
-        [UserStatuses.DELETED]: 'grey'
-      }
-
-      const getIndicatorColorFromUserStatus  = (status) => {
-        const color = userStatusToColor[status];
-
-        if (!color) {
-          throw new Error(`Unknown status: ${status}`)
-        }
-
-        return color;
-      }
-    ```
-  </details>
-
--
-  <details>
-    <summary>
-      <b>A16.</b> Conditions are simplified.
+      <b>A14.</b> Conditions are simplified.
     </summary>
   <p>
 
@@ -1329,7 +1203,7 @@
 -
   <details>
     <summary>
-      <b>A17.</b> To iterate over arrays and data structures that can be iterated over, (Iterable) use the <code>for .. of</code>.
+      <b>A15.</b> To iterate over arrays and data structures that can be iterated over, (Iterable) use the <code>for .. of</code>.
     </summary>
   <p>
 
@@ -1355,52 +1229,14 @@
   </p>
   </details>
 
--
-  <details>
-    <summary>
-      <b>A18.</b> Changes are applied pointwise.
-    </summary>
-  <p>
-
-  For example, when removing classes from a DOM element, an attempt isn't made to remove all possible classes, if you can remove only the one that is actually set on the DOM element at the moment.
-
-  Bad:
-
-  ```typescript
-    const imageContainer = document.querySelector('.image-container');
-
-    const changeFilter = (filterName) => {
-      imageContainer.classList.remove('filter-chrome', 'filter-sepia', 'filter-marvin');
-      imageContainer.classList.add(filterName);
-    };
-  ```
-
-  Good:
-
-  ```typescript
-    const imageContainer = document.querySelector('.image-container');
-
-    let currentFilter;
-    const changeFilter = (filterName) => {
-      if (currentFilter) {
-        imageContainer.classList.remove(currentFilter);
-      }
-      imageContainer.classList.add(filterName);
-      currentFilter = filterName;
-    };
-  ```
-
-  </p>
-  </details>
-
 ### Complexity and Readability.
 
-- **A19** Long functions and methods are split into several smaller ones.
+- **A16** Long functions and methods are split into several smaller ones.
 
 -
   <details>
     <summary>
-      <b>A20.</b> Iterators for arrays are used to work with JS collections.
+      <b>A17.</b> Iterators for arrays are used to work with JS collections.
     </summary>
   <p>
 
@@ -1412,50 +1248,6 @@
         console.log(element);
       });
     });
-  ```
-  </p>
-  </details>
-
--
-  <details>
-    <summary>
-      <b>A21.</b> Cyclomatic complexity SHOULD be less than 5 and MUST be less than 7
-    </summary>
-  <p>
-
-  Bad:
-
-  ```typescript
-    const maxOfThree = (x, y, z) => {
-    if (!isNaN(x) && !isNaN(y) && !isNaN(z)) {
-        if (x > y) {
-          if (x > z) {
-            return x;
-          } else if (y > z ) {
-            return y;
-          } else {
-            return z;
-          }
-        }
-      } else {
-        throw new Error('x, y, and z MUST be numbers');
-      }
-    }
-  ```
-
-  Good:
-  ```typescript
-    const maxOfThree = (x, y, z) => {
-      const triplet = [x, y, z];
-
-      if (triplet.some(isNaN)) {
-        throw new Error('x, y, and z MUST be numbers');
-      }
-
-      return Math.max(...triplet);
-      //OR
-      return triplet.reduce((a, b) => a > b ? a : b);
-    }
   ```
   </p>
   </details>
