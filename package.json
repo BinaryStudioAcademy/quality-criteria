@@ -3,20 +3,13 @@
   "scripts": {
     "lint:editorconfig": "editorconfig-checker",
     "lint:fs": "ls-lint",
-    "lint:md": "remark .",
-    "lint": "npm run lint:editorconfig && npm run lint:fs && npm run lint:md"
+    "lint:prettify": "prettier --check \"**/*.md\"",
+    "lint": "npm run lint:editorconfig && npm run lint:fs && npm run lint:prettify",
+    "prettify": "prettier --write \"**/*.md\""
   },
-  "dependencies": {},
   "devDependencies": {
-    "@ls-lint/ls-lint": "1.9.2",
-    "editorconfig-checker": "4.0.2",
-    "remark-cli": "9.0.0",
-    "remark-frontmatter": "3.0.0",
-    "remark-lint-code-block-style": "2.0.1",
-    "remark-lint-emphasis-marker": "2.0.1",
-    "remark-lint-ordered-list-marker-value": "2.0.1",
-    "remark-lint-strong-marker": "2.0.1",
-    "remark-lint-unordered-list-marker-style": "2.0.1",
-    "remark-preset-lint-recommended": "5.0.0"
+    "@ls-lint/ls-lint": "1.11.2",
+    "editorconfig-checker": "5.0.1",
+    "prettier": "2.8.8"
   }
 }

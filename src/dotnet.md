@@ -1,6 +1,4 @@
-<h1 align="center">
-  .NET 🟦
-</h1>
+# .NET 🟦
 
 ## Base
 
