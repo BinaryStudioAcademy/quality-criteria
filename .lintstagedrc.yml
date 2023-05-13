@@ -1,0 +1,3 @@
+'**/*.md': npx prettier --write
+'*': npm run lint:editorconfig && npm run lint:fs
+'!(.github/**/*)*.md': npm run lint:md

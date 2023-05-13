@@ -977,13 +977,13 @@
   <ListItem onClick="{handleBtnClick}" />
   ```
 
-      </p>
-      <p>
-      Alternative naming(default function naming) MAY be applied to:
-      - Render props
-      - Injecting behavior via HOCs
-      - Explicit side-effect based calls(fetching data or direct DOM interactions)
-      - Injected functions that are not event handlers
+    </p>
+    <p>
+  Alternative naming(default function naming) MAY be applied to:
+  - Render props
+  - Injecting behavior via HOCs
+  - Explicit side-effect based calls(fetching data or direct DOM interactions)
+  - Injected functions that are not event handlers
 
   ```tsx
   //HOC and injected behavior

@@ -1,12 +1,14 @@
 settings:
   commonmark: true
-  emphasis: _
+  emphasis: '_'
   strong: '*'
   bullet: '-'
   incrementListMarker: true
-  listItemIndent: mixed
+  listItemIndent: one
   fences: true
+  rule: '-'
 plugins:
+  - remark-prettier
   - remark-preset-lint-recommended
   - remark-frontmatter
   - - remark-lint-emphasis-marker
@@ -19,3 +21,10 @@ plugins:
     - fenced
   - - remark-lint-list-item-indent
     - false
+  - - '@mavrin/remark-typograf'
+    - locale:
+        - en-US
+        - uk
+      disableRule:
+        - 'common/nbsp/*'
+        - 'common/space/*'

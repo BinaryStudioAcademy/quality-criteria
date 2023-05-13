@@ -22,6 +22,14 @@ jobs:
         run: |
           npm i
 
-      - name: Code Linting
+      - name: Lint Code
         run: |
           npm run lint
+
+      - name: Lint MD
+        run: |
+          npm run remark && \
+          if [ "$(git status --porcelain)" ]; then \
+            echo "Markdown style issues found. Please run \"npm run remark\" and commit changes." && \
+            exit 1; \
+          fi
