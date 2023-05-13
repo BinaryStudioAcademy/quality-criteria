@@ -2,5 +2,5 @@
 
 Set of rules that is required for the project
 
-- [JavaScript 🟨](./source/javascript.md)
-- [.NET 🟦](./source/dotnet.md)
+- [JavaScript 🟨](./src/javascript.md)
+- [.NET 🟦](./src/dotnet.md)
