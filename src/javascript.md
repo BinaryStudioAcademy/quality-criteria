@@ -36,7 +36,7 @@
     </summary>
     <p>
 
-      `Enums`, <code>Classes</code> and <code>Types</code> are exceptions.
+  `Enums`, <code>Classes</code> and <code>Types</code> are exceptions.
 
     </p>
   </details>
@@ -58,29 +58,29 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```javascript
-      const age = [10, 15, 22];
-      const name = ['John', 'Pit', 'Brew'];
+  ```javascript
+  const age = [10, 15, 22];
+  const name = ['John', 'Pit', 'Brew'];
 
-      const cat = {
-        name: 'Pit',
-        friend: ['Nike', 'Sof', 'Kat'],
-      };
-      ```
+  const cat = {
+    name: 'Pit',
+    friend: ['Nike', 'Sof', 'Kat'],
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```javascript
-      const ages = [10, 15, 22];
-      const names = ['John', 'Pit', 'Brew'];
+  ```javascript
+  const ages = [10, 15, 22];
+  const names = ['John', 'Pit', 'Brew'];
 
-      const cat = {
-        name: 'Pit',
-        friends: ['Nike', 'Sof', 'Kat'],
-      };
-      ```
+  const cat = {
+    name: 'Pit',
+    friends: ['Nike', 'Sof', 'Kat'],
+  };
+  ```
 
     </p>
   </details>
