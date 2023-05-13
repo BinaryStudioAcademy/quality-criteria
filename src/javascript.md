@@ -10,7 +10,7 @@
     </summary>
     <p>
 
-      All the mandatory tasks of the TT have been fulfilled.
+  All the mandatory tasks of the TT have been fulfilled.
 
     </p>
   </details>
@@ -21,7 +21,7 @@
     </summary>
     <p>
 
-      Data loading and working with the app, no errors occur, the app doesn't break.
+  Data loading and working with the app, no errors occur, the app doesn't break.
 
     </p>
   </details>
@@ -47,7 +47,7 @@
     </summary>
     <p>
 
-      Abbreviations in words are prohibited. Abbreviated variable names can be used only if the name is common (<code>err</code>, <code>xhr</code>, <code>evt</code>, <code>src</code>, <code>i</code> and etc).
+  Abbreviations in words are prohibited. Abbreviated variable names can be used only if the name is common (<code>err</code>, <code>xhr</code>, <code>evt</code>, <code>src</code>, <code>i</code> and etc).
 
     </p>
   </details>
@@ -91,35 +91,35 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```javascript
-      const login = true;
+  ```javascript
+  const login = true;
 
-      const isNotRemoved = Boolean(!payload);
-      if (isNotRemoved) {
-      }
+  const isNotRemoved = Boolean(!payload);
+  if (isNotRemoved) {
+  }
 
-      const cat = {
-        name: 'Pit',
-        friend: false,
-      };
-      ```
+  const cat = {
+    name: 'Pit',
+    friend: false,
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```javascript
-      const isLogin = true;
+  ```javascript
+  const isLogin = true;
 
-      const isRemoved = Boolean(payload);
-      if (!isRemoved) {
-      }
+  const isRemoved = Boolean(payload);
+  if (!isRemoved) {
+  }
 
-      const cat = {
-        name: 'Pit',
-        hasFriends: false,
-      };
-      ```
+  const cat = {
+    name: 'Pit',
+    hasFriends: false,
+  };
+  ```
 
     </p>
   </details>
@@ -130,44 +130,44 @@
     </summary>
     <p>
 
-      Exceptions:
+  Exceptions:
 
-      1. Functions constructors.
-      2. Handler functions or callbacks.
+  1. Functions constructors.
+  2. Handler functions or callbacks.
 
-      Bad:
+  Bad:
 
-      ```javascript
-      const action = (names) => {
-        console.log(names);
-      };
+  ```javascript
+  const action = (names) => {
+    console.log(names);
+  };
 
-      const cat = {
-        name: 'Pit',
-        action() {
-          console.log('Meow');
-        },
-      };
+  const cat = {
+    name: 'Pit',
+    action() {
+      console.log('Meow');
+    },
+  };
 
-      const randomNumber = () => Math.random();
-      ```
+  const randomNumber = () => Math.random();
+  ```
 
-      Good:
+  Good:
 
-      ```javascript
-      const printNames = (names) => {
-        console.log(names);
-      };
+  ```javascript
+  const printNames = (names) => {
+    console.log(names);
+  };
 
-      const cat = {
-        name: 'Pit',
-        say() {
-          console.log('Meow');
-        },
-      };
+  const cat = {
+    name: 'Pit',
+    say() {
+      console.log('Meow');
+    },
+  };
 
-      const getRandomNumber = () => Math.random();
-      ```
+  const getRandomNumber = () => Math.random();
+  ```
 
     </p>
   </details>
@@ -178,12 +178,12 @@
     </summary>
     <p>
 
-      Words are separated by underscores (`UPPER_SNAKE_CASE`), for example:
+  Words are separated by underscores (`UPPER_SNAKE_CASE`), for example:
 
-      ```javascript
-      const MAX_HEIGHT = 6996;
-      const IDX_NOT_FOUND = -1;
-      ```
+  ```javascript
+  const MAX_HEIGHT = 6996;
+  const IDX_NOT_FOUND = -1;
+  ```
 
     </p>
   </details>
@@ -194,27 +194,27 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```javascript
-      const filtersArray = ['all', 'past', 'feature'];
+  ```javascript
+  const filtersArray = ['all', 'past', 'feature'];
 
-      const catObject = {
-        name: 'Pit',
-        age: 7,
-      };
-      ```
+  const catObject = {
+    name: 'Pit',
+    age: 7,
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```javascript
-      const filters = ['all', 'past', 'feature'];
+  ```javascript
+  const filters = ['all', 'past', 'feature'];
 
-      const cat = {
-        name: 'Pit',
-        age: 7,
-      };
-      ```
+  const cat = {
+    name: 'Pit',
+    age: 7,
+  };
+  ```
 
     </p>
   </details>
@@ -225,18 +225,18 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      class wizard {}
-      ```
+  ```typescript
+  class wizard {}
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      // class
-      class Wizard {}
-      ```
+  ```typescript
+  // class
+  class Wizard {}
+  ```
 
     </p>
   </details>
@@ -247,37 +247,37 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const statusCodes = {
-        ok: 200,
-        notFound: 404,
-        badRequest: 400,
-      };
+  ```typescript
+  const statusCodes = {
+    ok: 200,
+    notFound: 404,
+    badRequest: 400,
+  };
 
-      enum STATUS_CODE {
-        Ok = 200,
-        NotFound = 404,
-        BadRequest = 400,
-      }
-      ```
+  enum STATUS_CODE {
+    Ok = 200,
+    NotFound = 404,
+    BadRequest = 400,
+  }
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const StatusCode = {
-        OK: 200,
-        NOT_FOUND: 404,
-        BAD_REQUEST: 400,
-      };
+  ```typescript
+  const StatusCode = {
+    OK: 200,
+    NOT_FOUND: 404,
+    BAD_REQUEST: 400,
+  };
 
-      enum StatusCode {
-        OK = 200,
-        NOT_FOUND = 404,
-        BAD_REQUEST = 400,
-      }
-      ```
+  enum StatusCode {
+    OK = 200,
+    NOT_FOUND = 404,
+    BAD_REQUEST = 400,
+  }
+  ```
 
     </p>
   </details>
@@ -288,21 +288,21 @@
     </summary>
     <p>
 
-      In order to avoid name conflicts in different operating systems, it is better to use the least conflicting way of naming files - lowercase letters separated by a hyphen.
+  In order to avoid name conflicts in different operating systems, it is better to use the least conflicting way of naming files - lowercase letters separated by a hyphen.
 
-      Bad
+  Bad
 
-      ```typescript
-      // src/components/common/Button/Button.tsx
-      // src/services/UserService/UserService.ts
-      ```
+  ```typescript
+  // src/components/common/Button/Button.tsx
+  // src/services/UserService/UserService.ts
+  ```
 
-      Good
+  Good
 
-      ```typescript
-      // src/components/common/button/button.tsx
-      // src/services/user-service/user-service.ts
-      ```
+  ```typescript
+  // src/components/common/button/button.tsx
+  // src/services/user-service/user-service.ts
+  ```
 
     </p>
   </details>
@@ -315,55 +315,55 @@
     </summary>
     <p>
 
-      In any constructions that imply the use of a code block (curly braces), such as `for`, `while`, `if`, `switch`, `function`, the code block is necessarily used, even if the statement consists of one line.
+  In any constructions that imply the use of a code block (curly braces), such as `for`, `while`, `if`, `switch`, `function`, the code block is necessarily used, even if the statement consists of one line.
 
-      Bad
+  Bad
 
-      ```typescript
-      if (x % 2 === 1) isEven = false;
+  ```typescript
+  if (x % 2 === 1) isEven = false;
 
-      switch (actionType) {
-        case ActionType.START_LOADING:
-          return {
-            ...state,
-            isLoading: true,
-          };
-        case ActionType.END_LOADING:
-          return {
-            ...state,
-            isLoading: false,
-          };
-      }
-      ```
+  switch (actionType) {
+    case ActionType.START_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case ActionType.END_LOADING:
+      return {
+        ...state,
+        isLoading: false,
+      };
+  }
+  ```
 
-      Good
+  Good
 
-      ```typescript
-      if (x % 2 === 1) {
-        isEven = false;
-      }
+  ```typescript
+  if (x % 2 === 1) {
+    isEven = false;
+  }
 
-      switch (actionType) {
-        case ActionType.START_LOADING: {
-          return {
-            ...state,
-            isLoading: true,
-          };
-        }
-        case ActionType.END_LOADING: {
-          return {
-            ...state,
-            isLoading: false,
-          };
-        }
-      }
-      ```
+  switch (actionType) {
+    case ActionType.START_LOADING: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case ActionType.END_LOADING: {
+      return {
+        ...state,
+        isLoading: false,
+      };
+    }
+  }
+  ```
 
-      The exceptions are single-line arrow functions, which can be used without the required blocks of code:
+  The exceptions are single-line arrow functions, which can be used without the required blocks of code:
 
-      ```typescript
-      const checkedCheckboxes = checkboxes.filter((checkbox) => checkbox.checked);
-      ```
+  ```typescript
+  const checkedCheckboxes = checkboxes.filter((checkbox) => checkbox.checked);
+  ```
 
     </p>
   </details>
@@ -374,9 +374,9 @@
     </summary>
     <p>
 
-      There are no errors when checking the project with `ESLint`, `Stylelint` and `EditorConfigChecker`.
+  There are no errors when checking the project with `ESLint`, `Stylelint` and `EditorConfigChecker`.
 
-      Rules aren't overridden anywhere in the source code.
+  Rules aren't overridden anywhere in the source code.
 
     </p>
   </details>
@@ -387,29 +387,29 @@
     </summary>
     <p>
 
-      ```typescript
-      // 1. Imports
-      import { getUniqueItems } from 'helpers';
+  ```typescript
+  // 1. Imports
+  import { getUniqueItems } from 'helpers';
 
-      // 2. Data structures/types
-      const COLORS = ['red', 'green', 'blue'];
+  // 2. Data structures/types
+  const COLORS = ['red', 'green', 'blue'];
 
-      // 3. Declaring variables whose value is known before the program starts
-      const colorPicker = document.querySelector('.color-picker');
+  // 3. Declaring variables whose value is known before the program starts
+  const colorPicker = document.querySelector('.color-picker');
 
-      // 4. Functions
-      const getUniqueColors = (userColors, defaultColors) => {
-        return getUniqueItems(userColors, defaultColors);
-      };
+  // 4. Functions
+  const getUniqueColors = (userColors, defaultColors) => {
+    return getUniqueItems(userColors, defaultColors);
+  };
 
-      // 5. Program code
-      const rightColors = getColorsIntersection(colorPicker.value, DEFAULT_COLORS);
+  // 5. Program code
+  const rightColors = getColorsIntersection(colorPicker.value, DEFAULT_COLORS);
 
-      // 6. Exports
-      export { rightColors };
-      ```
+  // 6. Exports
+  export { rightColors };
+  ```
 
-      Some blocks may be missing, but the rest should still adhere to the order.
+  Some blocks may be missing, but the rest should still adhere to the order.
 
     </p>
   </details>
@@ -420,56 +420,56 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const LOAD_USERS_START = 'LOAD_USERS_START';
-      const LOAD_USERS_END = 'LOAD_USERS_END';
-      const LOAD_USERS_ERROR = 'LOAD_USERS_ERROR';
-      ```
+  ```typescript
+  const LOAD_USERS_START = 'LOAD_USERS_START';
+  const LOAD_USERS_END = 'LOAD_USERS_END';
+  const LOAD_USERS_ERROR = 'LOAD_USERS_ERROR';
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-        const UsersActionType = {
-          LOAD_USERS_START: 'LOAD_USERS_START',
-          LOAD_USERS_END: 'LOAD_USERS_END',
-          LOAD_USERS_ERROR: 'LOAD_USERS_ERROR'
-        }
+  ```typescript
+    const UsersActionType = {
+      LOAD_USERS_START: 'LOAD_USERS_START',
+      LOAD_USERS_END: 'LOAD_USERS_END',
+      LOAD_USERS_ERROR: 'LOAD_USERS_ERROR'
+    }
 
-        // or
+    // or
 
-        enum UsersActionType = {
-          LOAD_USERS_START = 'LOAD_USERS_START',
-          LOAD_USERS_END = 'LOAD_USERS_END',
-          LOAD_USERS_ERROR = 'LOAD_USERS_ERROR'
-        }
-      ```
+    enum UsersActionType = {
+      LOAD_USERS_START = 'LOAD_USERS_START',
+      LOAD_USERS_END = 'LOAD_USERS_END',
+      LOAD_USERS_ERROR = 'LOAD_USERS_ERROR'
+    }
+  ```
 
     </p>
     <p>
-      Note: constants that are used in the same context, but has different purposes should be split into different enums or separate constants
+    Note: constants that are used in the same context, but has different purposes should be split into different enums or separate constants
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const CompensationComputation = {
-        HOLIDAY_COMPENSATION: 1.7,
-        OVERTIME_COMPENSATION: 1.5,
-        OVERTIME_THRESHOLD: 1.1, //related not to compensation rate, but to overtime hours calculation
-      };
-      ```
+  ```typescript
+  const CompensationComputation = {
+    HOLIDAY_COMPENSATION: 1.7,
+    OVERTIME_COMPENSATION: 1.5,
+    OVERTIME_THRESHOLD: 1.1, //related not to compensation rate, but to overtime hours calculation
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const CompensationCoefficient = {
-        HOLIDAY_COMPENSATION: 1.7,
-        OVERTIME_COMPENSATION: 1.5,
-      };
+  ```typescript
+  const CompensationCoefficient = {
+    HOLIDAY_COMPENSATION: 1.7,
+    OVERTIME_COMPENSATION: 1.5,
+  };
 
-      const OVERTIME_THRESHOLD = 1.1;
-      ```
+  const OVERTIME_THRESHOLD = 1.1;
+  ```
 
     </p>
   </details>
@@ -480,59 +480,59 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      class Animal {
-        constructor({ name }) {
-          this.privateName = name;
-        }
+  ```typescript
+  class Animal {
+    constructor({ name }) {
+      this.privateName = name;
+    }
 
-        getPrivateName() {
-          return this.privateName;
-        }
-      }
-      ```
+    getPrivateName() {
+      return this.privateName;
+    }
+  }
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      class Animal {
-        constructor({ name }) {
-          this._privateName = name;
-        }
+  ```typescript
+  class Animal {
+    constructor({ name }) {
+      this._privateName = name;
+    }
 
-        getPrivateName() {
-          return this._privateName;
-        }
-      }
+    getPrivateName() {
+      return this._privateName;
+    }
+  }
 
-      // or
+  // or
 
-      class Animal {
-        constructor({ name }) {
-          this.#privateName = name;
-        }
+  class Animal {
+    constructor({ name }) {
+      this.#privateName = name;
+    }
 
-        getPrivateName() {
-          return this.#privateName;
-        }
-      }
+    getPrivateName() {
+      return this.#privateName;
+    }
+  }
 
-      // or
+  // or
 
-      class Animal {
-        private privateName;
+  class Animal {
+    private privateName;
 
-        constructor({ name }) {
-          this.privateName = name;
-        }
+    constructor({ name }) {
+      this.privateName = name;
+    }
 
-        private getPrivateName() {
-          return this.privateName;
-        }
-      }
-      ```
+    private getPrivateName() {
+      return this.privateName;
+    }
+  }
+  ```
 
     </p>
   </details>
@@ -545,7 +545,7 @@
     </summary>
     <p>
 
-      The dependency lists in the package.json file indicate the exact versions of the packages used. The version must be specified. `^`, `*` and `~` are not allowed.
+  The dependency lists in the package.json file indicate the exact versions of the packages used. The version must be specified. `^`, `*` and `~` are not allowed.
 
     </p>
   </details>
@@ -556,7 +556,7 @@
     </summary>
     <p>
 
-      There are no script files that are "dead code" that is never executed.
+  There are no script files that are "dead code" that is never executed.
 
     </p>
   </details>
@@ -569,7 +569,7 @@
     </summary>
     <p>
 
-      Constants and enum are read-only and are never redefined.
+  Constants and enum are read-only and are never redefined.
 
     </p>
   </details>
@@ -580,7 +580,7 @@
     </summary>
     <p>
 
-      Unsafe constructions are prohibited in the code. The code runs in strict mode. The `'use strict'` directive is set at the beginning of js-files; or ES modules are used, which by default run in strict mode.
+  Unsafe constructions are prohibited in the code. The code runs in strict mode. The `'use strict'` directive is set at the beginning of js-files; or ES modules are used, which by default run in strict mode.
 
     </p>
   </details>
@@ -591,33 +591,33 @@
     </summary>
     <p>
 
-      For example, incorrect addition of two operands as strings. The problem of concatenation precedence over addition.
+  For example, incorrect addition of two operands as strings. The problem of concatenation precedence over addition.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      new Date() + 1000;
-      ```
+  ```typescript
+  new Date() + 1000;
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      Number(new Date()) + 1000;
-      ```
+  ```typescript
+  Number(new Date()) + 1000;
+  ```
 
-      Potentially incorrect operation of taking the integer part of a number.
+  Potentially incorrect operation of taking the integer part of a number.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const minutesNumber = ~~(seconds / 60);
-      ```
+  ```typescript
+  const minutesNumber = ~~(seconds / 60);
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const minutesNumber = Math.trunc(seconds / 60);
-      ```
+  ```typescript
+  const minutesNumber = Math.trunc(seconds / 60);
+  ```
 
     </p>
   </details>
@@ -629,23 +629,23 @@
       <b>B24.</b> Modules do not export mutable variables.
     </summary>
     <p>
-      A module shouldn't export a variable whose value may change in the future.
+    A module shouldn't export a variable whose value may change in the future.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      let latestResult;
+  ```typescript
+  let latestResult;
 
-      export { latestResult };
-      ```
+  export { latestResult };
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const latestResult = loadLatestResult();
+  ```typescript
+  const latestResult = loadLatestResult();
 
-      export { latestResult };
-      ```
+  export { latestResult };
+  ```
 
     </p>
   </details>
@@ -656,7 +656,7 @@
     </summary>
     <p>
 
-      Different logical parts of the code are placed in separate module files. The name of the module must match its content. For example, if the module contains the `GameView` class, then the name of the module should be `game-view.js`.
+  Different logical parts of the code are placed in separate module files. The name of the module must match its content. For example, if the module contains the `GameView` class, then the name of the module should be `game-view.js`.
 
     </p>
   </details>
@@ -667,26 +667,26 @@
     </summary>
     <p>
 
-      Files named `index` are used for export only. They should not contain additional code that can be used in other parts of the application.
+  Files named `index` are used for export only. They should not contain additional code that can be used in other parts of the application.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      // logger/index.ts
-      const rewriteFile = (filePath: string) => {};
+  ```typescript
+  // logger/index.ts
+  const rewriteFile = (filePath: string) => {};
 
-      export { rewriteFile };
-      ```
+  export { rewriteFile };
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      // logger/index.ts
-      import { rewriteFile } from './rewrite-file';
-      import { somethingElse } from './something-else';
+  ```typescript
+  // logger/index.ts
+  import { rewriteFile } from './rewrite-file';
+  import { somethingElse } from './something-else';
 
-      export { rewriteFile, somethingElse };
-      ```
+  export { rewriteFile, somethingElse };
+  ```
 
     </p>
   </details>
@@ -703,7 +703,7 @@
     </summary>
     <p>
 
-      Event handlers are added only when the element appears on the page and are removed when it disappear.
+  Event handlers are added only when the element appears on the page and are removed when it disappear.
 
     </p>
   </details>
@@ -718,7 +718,7 @@
     </summary>
     <p>
 
-      While working with a database, all SQL queries must be protected from SQL injection.
+  While working with a database, all SQL queries must be protected from SQL injection.
 
     </p>
   </details>
@@ -729,7 +729,7 @@
     </summary>
     <p>
 
-      It isn't allowed to display unfiltered information received from the user, because XSS attack is possible.
+  It isn't allowed to display unfiltered information received from the user, because XSS attack is possible.
 
     </p>
   </details>
@@ -740,7 +740,7 @@
     </summary>
     <p>
 
-      The database shouldn't store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
+  The database shouldn't store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
 
     </p>
   </details>
@@ -755,7 +755,7 @@
     </summary>
     <p>
 
-      All mandatory and optional tasks of the TT have been fulfilled.
+  All mandatory and optional tasks of the TT have been fulfilled.
 
     </p>
   </details>
@@ -768,38 +768,38 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      //Storage what? LocalStorage, FileStorage, Storage as an entity in your domain?
-      class Storage {
-        public getItem(location: string) {}
-      }
+  ```typescript
+  //Storage what? LocalStorage, FileStorage, Storage as an entity in your domain?
+  class Storage {
+    public getItem(location: string) {}
+  }
 
-      //Too concrete, requires knowing what S3 is, context derivation is required
-      class S3 {
-        public getItem(location: string) {}
-      }
-      ```
+  //Too concrete, requires knowing what S3 is, context derivation is required
+  class S3 {
+    public getItem(location: string) {}
+  }
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      //Clear intent, this is infrastructural code
-      interface FileStorage {
-        getItem(location: string): Promise<Buffer>
-      }
+  ```typescript
+  //Clear intent, this is infrastructural code
+  interface FileStorage {
+    getItem(location: string): Promise<Buffer>
+  }
 
-      //We know that this is an S3 implementation of FileStorage just by checking the name
-      class S3FileStorage implements FileStorage {
-        ...
-      }
+  //We know that this is an S3 implementation of FileStorage just by checking the name
+  class S3FileStorage implements FileStorage {
+    ...
+  }
 
-      //Although this does not implement any interface, other implementations are possible, so we add implementation details
-      class EuropeanCentralBankCurrencyConverter {
-        public getConversionRate(from: Currency, to: Currency);
-      }
-      ```
+  //Although this does not implement any interface, other implementations are possible, so we add implementation details
+  class EuropeanCentralBankCurrencyConverter {
+    public getConversionRate(from: Currency, to: Currency);
+  }
+  ```
 
     </p>
   </details>
@@ -810,52 +810,52 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const popup = {
-        openPopup() {
-          console.log('I will open popup');
-        },
-      };
+  ```typescript
+  const popup = {
+    openPopup() {
+      console.log('I will open popup');
+    },
+  };
 
-      const wizard = {
-        wizardName: 'Gandalf',
-      };
-      ```
+  const wizard = {
+    wizardName: 'Gandalf',
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const popup = {
-        open() {
-          console.log('I will open popup');
-        },
-      };
+  ```typescript
+  const popup = {
+    open() {
+      console.log('I will open popup');
+    },
+  };
 
-      const wizard = {
-        name: 'Gandalf',
-      };
-      ```
+  const wizard = {
+    name: 'Gandalf',
+  };
+  ```
 
-      Bad:
+  Bad:
 
-      ```typescript
-      // src/validation-schemas/users/login.validation-schema.ts
+  ```typescript
+  // src/validation-schemas/users/login.validation-schema.ts
 
-      const userValidationSchema = {};
-      ```
+  const userValidationSchema = {};
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      // src/validation-schemas/users/login.validation-schema.ts
+  ```typescript
+  // src/validation-schemas/users/login.validation-schema.ts
 
-      const user = {};
+  const user = {};
 
-      // src/components/sign-in/sign-in.tsx
-      import { user as userValidationSchema } from 'validation-schemas';
-      ```
+  // src/components/sign-in/sign-in.tsx
+  import { user as userValidationSchema } from 'validation-schemas';
+  ```
 
     </p>
   </details>
@@ -868,7 +868,7 @@
     </summary>
     <p>
 
-      Arrow functions are used when declaring functions. A special method syntax is used to declare object methods.
+  Arrow functions are used when declaring functions. A special method syntax is used to declare object methods.
 
     </p>
   </details>
@@ -879,33 +879,33 @@
     </summary>
     <p>
 
-      Variable naming style is used the same in all modules, for example:
+  Variable naming style is used the same in all modules, for example:
 
-      If the variables that store the DOM element contain the word Element or anything else, it must be the same everywhere
+  If the variables that store the DOM element contain the word Element or anything else, it must be the same everywhere
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const popupMainElement = document.querySelector('.popup');
-      const sidebarNode = document.querySelector('.sidebar');
-      const similarContainer = popupMainElement.querySelector('ul.similar');
-      ```
+  ```typescript
+  const popupMainElement = document.querySelector('.popup');
+  const sidebarNode = document.querySelector('.sidebar');
+  const similarContainer = popupMainElement.querySelector('ul.similar');
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const popupMainElement = document.querySelector('.popup');
-      const sidebarElement = document.querySelector('.sidebar');
-      const similarContainerElement = popupMainElement.querySelector('ul.similar');
-      ```
+  ```typescript
+  const popupMainElement = document.querySelector('.popup');
+  const sidebarElement = document.querySelector('.sidebar');
+  const similarContainerElement = popupMainElement.querySelector('ul.similar');
+  ```
 
-      Also good
+  Also good
 
-      ```typescript
-      const popupMainNode = document.querySelector('.popup');
-      const sidebarNode = document.querySelector('.sidebar');
-      const similarContainerNode = popupMainNode.querySelector('ul.similar');
-      ```
+  ```typescript
+  const popupMainNode = document.querySelector('.popup');
+  const sidebarNode = document.querySelector('.sidebar');
+  const similarContainerNode = popupMainNode.querySelector('ul.similar');
+  ```
 
     </p>
   </details>
@@ -916,35 +916,35 @@
     </summary>
     <p>
 
-      If there are several different APIs that allow you to solve the same problem, for example, finding an element by id in the DOM tree, then only one of these APIs is used in the project.
+  If there are several different APIs that allow you to solve the same problem, for example, finding an element by id in the DOM tree, then only one of these APIs is used in the project.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const popupMainElement = document.querySelector('#popup');
-      const sidebarElement = document.getElementById('sidebar');
+  ```typescript
+  const popupMainElement = document.querySelector('#popup');
+  const sidebarElement = document.getElementById('sidebar');
 
-      const popupClassName = popupMainElement.getAttribute('class');
-      const sidebarClassName = sidebarElement.className;
-      ```
+  const popupClassName = popupMainElement.getAttribute('class');
+  const sidebarClassName = sidebarElement.className;
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const popupMainElement = document.querySelector('#popup');
-      const sidebarElement = document.querySelector('#sidebar');
+  ```typescript
+  const popupMainElement = document.querySelector('#popup');
+  const sidebarElement = document.querySelector('#sidebar');
 
-      const popupClassName = popupMainElement.getAttribute('class');
-      const sidebarClassName = sidebarElement.getAttribute('class');
+  const popupClassName = popupMainElement.getAttribute('class');
+  const sidebarClassName = sidebarElement.getAttribute('class');
 
-      // or
+  // or
 
-      const popupMainElement = document.getElementById('popup');
-      const sidebarElement = document.getElementById('sidebar');
+  const popupMainElement = document.getElementById('popup');
+  const sidebarElement = document.getElementById('sidebar');
 
-      const popupClassName = popupMainElement.className;
-      const sidebarClassName = sidebarElement.className;
-      ```
+  const popupClassName = popupMainElement.className;
+  const sidebarClassName = sidebarElement.className;
+  ```
 
     </p>
   </details>
@@ -955,14 +955,14 @@
     </summary>
     <p>
 
-      1. Constructor.
-      2. Class property getters and setters.
-      3. The main methods of the class:
-      4. Overloaded methods of the parent class.
-      5. Class methods;
-      6. Private methods;
-      7. Event handlers.
-      8. Static methods.
+  1. Constructor.
+  2. Class property getters and setters.
+  3. The main methods of the class:
+  4. Overloaded methods of the parent class.
+  5. Class methods;
+  6. Private methods;
+  7. Event handlers.
+  8. Static methods.
 
     </p>
   </details>
@@ -973,29 +973,29 @@
     </summary>
     <p>
 
-      ```jsx
-      <ListItem onClick="{handleBtnClick}" />
-      ```
+  ```tsx
+  <ListItem onClick="{handleBtnClick}" />
+  ```
 
-        </p>
-        <p>
-        Alternative naming(default function naming) MAY be applied to:
-        - Render props
-        - Injecting behavior via HOCs
-        - Explicit side-effect based calls(fetching data or direct DOM interactions)
-        - Injected functions that are not event handlers
+      </p>
+      <p>
+      Alternative naming(default function naming) MAY be applied to:
+      - Render props
+      - Injecting behavior via HOCs
+      - Explicit side-effect based calls(fetching data or direct DOM interactions)
+      - Injected functions that are not event handlers
 
-      ```tsx
-      //HOC and injected behavior
-      const withModal = (ModalBody) => {
-        const [isOpen, setIsOpen] = React.useState(false);
-        const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen]);
-        //some logic;
+  ```tsx
+  //HOC and injected behavior
+  const withModal = (ModalBody) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen]);
+    //some logic;
 
-        //NOTE: closeModal MIGHT be used as a name in this case, but onClose would be ok too
-        return isOpen ? <ModalBody closeModal={handleClose} /> : null;
-      };
-      ```
+    //NOTE: closeModal MIGHT be used as a name in this case, but onClose would be ok too
+    return isOpen ? <ModalBody closeModal={handleClose} /> : null;
+  };
+  ```
 
     </p>
   </details>
@@ -1006,13 +1006,13 @@
     </summary>
     <p>
 
-      ```jsx
-      const Dashboard = () => {
-        const handleBtnClick = () => {};
+  ```jsx
+  const Dashboard = () => {
+    const handleBtnClick = () => {};
 
-        return <ListItem onClick={handleBtnClick} />;
-      };
-      ```
+    return <ListItem onClick={handleBtnClick} />;
+  };
+  ```
 
     </p>
   </details>
@@ -1025,41 +1025,41 @@
     </summary>
     <p>
 
-      Valid values are passed as expected by the specification.
+  Valid values are passed as expected by the specification.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const isPressed = element.getAttribute('aria-pressed', false);
-      ```
+  ```typescript
+  const isPressed = element.getAttribute('aria-pressed', false);
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const isPressed = element.getAttribute('aria-pressed');
-      ```
+  ```typescript
+  const isPressed = element.getAttribute('aria-pressed');
+  ```
 
-      ```typescript
-      let greeting = 'Привет';
+  ```typescript
+  let greeting = 'Привет';
 
-      wizards.map((wizard) => {
-        greeting += `, ${wizard.name}`;
-      });
+  wizards.map((wizard) => {
+    greeting += `, ${wizard.name}`;
+  });
 
-      console.log(`${greeting}!`);
-      ```
+  console.log(`${greeting}!`);
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const greeting = 'Привет';
+  ```typescript
+  const greeting = 'Привет';
 
-      const names = wizards.map((wizard) => {
-        return wizard.name;
-      });
+  const names = wizards.map((wizard) => {
+    return wizard.name;
+  });
 
-      console.log(`${greeting} ${names.join(', ')}!`);
-      ```
+  console.log(`${greeting} ${names.join(', ')}!`);
+  ```
 
     </p>
   </details>
@@ -1072,51 +1072,51 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```html
-      <input placeholder="First Name" />
+  ```html
+  <input placeholder="First Name" />
 
-      <button onClick="{handleEditUserClick}"></button>
+  <button onClick="{handleEditUserClick}"></button>
 
-      <a href="{AppRoute.DASHBOARD}"></a>
+  <a href="{AppRoute.DASHBOARD}"></a>
 
-      <button onClick="{handleEditUserClick}"><img src="img/user.svg" /></button>
+  <button onClick="{handleEditUserClick}"><img src="img/user.svg" /></button>
 
-      <a href="{AppRoute.DASHBOARD}"><img src="img/arrow.svg" /></a>
-      ```
+  <a href="{AppRoute.DASHBOARD}"><img src="img/arrow.svg" /></a>
+  ```
 
-      Good:
+  Good:
 
-      ```html
-      <label class="visually-hidden" for="first-name">First name</label>
-      <input id="first-name" placeholder="First Name" />
+  ```html
+  <label class="visually-hidden" for="first-name">First name</label>
+  <input id="first-name" placeholder="First Name" />
 
-      <button onClick="{handleEditUserClick}">
-        <span className="visually-hidden">Edit user</span>
-      </button>
+  <button onClick="{handleEditUserClick}">
+    <span className="visually-hidden">Edit user</span>
+  </button>
 
-      <a href="{AppRoute.DASHBOARD}">
-        <span className="visually-hidden">Go to dashboard</span>
-      </a>
+  <a href="{AppRoute.DASHBOARD}">
+    <span className="visually-hidden">Go to dashboard</span>
+  </a>
 
-      <label>
-        <span class="visually-hidden">First name</span>
-        <input placeholder="First Name" />
-      </label>
+  <label>
+    <span class="visually-hidden">First name</span>
+    <input placeholder="First Name" />
+  </label>
 
-      <button onClick="{handleEditUserClick}">
-        <img src="img/user.svg" alt="" />
-        <span className="visually-hidden">Edit user</span>
-      </button>
+  <button onClick="{handleEditUserClick}">
+    <img src="img/user.svg" alt="" />
+    <span className="visually-hidden">Edit user</span>
+  </button>
 
-      <a href="{AppRoute.DASHBOARD}">
-        <img src="img/arrow.svg" alt="" />
-        <span className="visually-hidden">Go to dashboard</span>
-      </a>
+  <a href="{AppRoute.DASHBOARD}">
+    <img src="img/arrow.svg" alt="" />
+    <span className="visually-hidden">Go to dashboard</span>
+  </a>
 
-      <input aria-label="First name" placeholder="First Name" />
-      ```
+  <input aria-label="First name" placeholder="First Name" />
+  ```
 
     </p>
   </details>
@@ -1133,23 +1133,23 @@
     </summary>
     <p>
 
-      Bad:
+  Bad:
 
-      ```typescript
-      let sex;
+  ```typescript
+  let sex;
 
-      if (male) {
-        sex = 'Man';
-      } else {
-        sex = 'Woman';
-      }
-      ```
+  if (male) {
+    sex = 'Man';
+  } else {
+    sex = 'Woman';
+  }
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const sex = male ? 'Man' : 'Woman';
-      ```
+  ```typescript
+  const sex = male ? 'Man' : 'Woman';
+  ```
 
     </p>
   </details>
@@ -1160,27 +1160,27 @@
     </summary>
     <p>
 
-      If the function returns a boolean value, do not use `if..else` with unnecessary `return`.
+  If the function returns a boolean value, do not use `if..else` with unnecessary `return`.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      const checkIsEquals = (firstValue, secondValue) => {
-        if (firstValue === secondValue) {
-          return true;
-        } else {
-          return false;
-        }
-      };
-      ```
+  ```typescript
+  const checkIsEquals = (firstValue, secondValue) => {
+    if (firstValue === secondValue) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      const checkIsEquals = (firstValue, secondValue) => {
-        return firstValue === secondValue;
-      };
-      ```
+  ```typescript
+  const checkIsEquals = (firstValue, secondValue) => {
+    return firstValue === secondValue;
+  };
+  ```
 
     </p>
   </details>
@@ -1193,24 +1193,24 @@
     </summary>
     <p>
 
-      Where an array element index isn't required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
+  Where an array element index isn't required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
 
-      Bad:
+  Bad:
 
-      ```typescript
-      for (let i = 0; i < levels.length; i++) {
-        const level = levels[i];
-        renderLevel(level);
-      }
-      ```
+  ```typescript
+  for (let i = 0; i < levels.length; i++) {
+    const level = levels[i];
+    renderLevel(level);
+  }
+  ```
 
-      Good:
+  Good:
 
-      ```typescript
-      for (const level of levels) {
-        renderLevel(level);
-      }
-      ```
+  ```typescript
+  for (const level of levels) {
+    renderLevel(level);
+  }
+  ```
 
     </p>
   </details>
@@ -1225,15 +1225,15 @@
     </summary>
     <p>
 
-      Iterators are used to transform arrays - `forEach`, `map`, `filter`, and etc.
+  Iterators are used to transform arrays - `forEach`, `map`, `filter`, and etc.
 
-      ```typescript
-      elements.forEach((element) => {
-        element.addEventListener('click', () => {
-          console.log(element);
-        });
-      });
-      ```
+  ```typescript
+  elements.forEach((element) => {
+    element.addEventListener('click', () => {
+      console.log(element);
+    });
+  });
+  ```
 
     </p>
   </details>
