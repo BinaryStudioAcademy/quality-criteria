@@ -1,6 +1,6 @@
 ls:
   .dir: regex:([.a-z]*)([-.][a-z]+)*
-  .md: regex:([.a-z]*)([-.][a-z]+)*
+  .md: regex:(_example) | regex:([.a-z]*)([-.][a-z]+)*
 
 ignore:
     - node_modules

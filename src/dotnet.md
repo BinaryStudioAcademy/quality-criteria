@@ -560,7 +560,7 @@
     <b>B44.</b> No logic in <code>main.ts</code> file.
   </summary>
 
-## Additional
+## Advance
 
 ### Formatting and Code Styling
 

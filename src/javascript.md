@@ -21,7 +21,7 @@
     </summary>
     <p>
 
-  Data loading and working with the app, no errors occur, the app doesn't break.
+  Data loading and working with the app, no errors occur, the app doesn’t break.
 
     </p>
   </details>
@@ -288,7 +288,7 @@
     </summary>
     <p>
 
-  In order to avoid name conflicts in different operating systems, it is better to use the least conflicting way of naming files - lowercase letters separated by a hyphen.
+  In order to avoid name conflicts in different operating systems, it is better to use the least conflicting way of naming files — lowercase letters separated by a hyphen.
 
   Bad
 
@@ -376,7 +376,7 @@
 
   There are no errors when checking the project with `ESLint`, `Stylelint` and `EditorConfigChecker`.
 
-  Rules aren't overridden anywhere in the source code.
+  Rules aren’t overridden anywhere in the source code.
 
     </p>
   </details>
@@ -556,7 +556,7 @@
     </summary>
     <p>
 
-  There are no script files that are "dead code" that is never executed.
+  There are no script files that are “dead code” that is never executed.
 
     </p>
   </details>
@@ -693,7 +693,7 @@
 
 ### Magic
 
-- **B27**. The code doesn't use "magic values", each of them has a separate variable named as a constant.
+- **B27**. The code doesn’t use “magic values”, each of them has a separate variable named as a constant.
 
 ### Security
 
@@ -729,7 +729,7 @@
     </summary>
     <p>
 
-  It isn't allowed to display unfiltered information received from the user, because XSS attack is possible.
+  It isn’t allowed to display unfiltered information received from the user, because XSS attack is possible.
 
     </p>
   </details>
@@ -740,12 +740,12 @@
     </summary>
     <p>
 
-  The database shouldn't store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
+  The database shouldn’t store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
 
     </p>
   </details>
 
-## Additional
+## Advance
 
 ### Objective
 
@@ -1193,7 +1193,7 @@
     </summary>
     <p>
 
-  Where an array element index isn't required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
+  Where an array element index isn’t required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
 
   Bad:
 
@@ -1225,7 +1225,7 @@
     </summary>
     <p>
 
-  Iterators are used to transform arrays - `forEach`, `map`, `filter`, and etc.
+  Iterators are used to transform arrays — `forEach`, `map`, `filter`, and etc.
 
   ```typescript
   elements.forEach((element) => {
