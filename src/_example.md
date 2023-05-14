@@ -11,7 +11,9 @@
       <b>B2.</b> Long base rule
     </summary>
     <p>
-      Details of the long base rule
+
+  Details of the long base rule
+
     </p>
   </details>
 
@@ -26,6 +28,8 @@
       <b>A2.</b> Long advance rule
     </summary>
     <p>
-      Details of the long advance rule
+
+  Details of the long advance rule
+
     </p>
   </details>
