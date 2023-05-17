@@ -804,7 +804,7 @@
     </p>
   </details>
 
-- **B38.** No `index` files. `index` file is only used as the entry point of the application.
+- **B38.** No `index` files. `index` file can be only used as the entry point of the application.
 
 ### Security
 
@@ -1181,7 +1181,7 @@
 
 - <details>
     <summary>
-      <b>A16.</b> Use the <code>for/of</code> to iterate over arrays and data structures that can be iterated over(Iterable).
+      <b>A14.</b> Use the <code>for/of</code> to iterate over arrays and data structures that can be iterated over(Iterable).
     </summary>
     <p>
 
@@ -1209,11 +1209,11 @@
 
 ### Complexity and Readability
 
-- **A14.** Long functions and methods are split into several smaller ones.
+- **A15.** Long functions and methods are split into several smaller ones.
 
 - <details>
     <summary>
-      <b>A15.</b> Iterators for arrays are used to work with JS collections.
+      <b>A16.</b> Iterators for arrays are used to work with JS collections.
     </summary>
     <p>
 
