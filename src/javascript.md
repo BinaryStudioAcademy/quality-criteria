@@ -861,29 +861,29 @@
 
   Bad:
 
-  ```html
+  ```tsx
   <input placeholder="First Name" />
 
-  <button onClick="{handleEditUserClick}"></button>
+  <button onClick={handleEditUserClick}></button>
 
-  <a href="{AppRoute.DASHBOARD}"></a>
+  <a href={AppRoute.DASHBOARD}></a>
 
-  <button onClick="{handleEditUserClick}"><img src="img/user.svg" /></button>
+  <button onClick={handleEditUserClick}><img src="img/user.svg" /></button>
 
-  <a href="{AppRoute.DASHBOARD}"><img src="img/arrow.svg" /></a>
+  <a href={AppRoute.DASHBOARD}><img src="img/arrow.svg" /></a>
   ```
 
   Good:
 
-  ```html
+  ```tsx
   <label class="visually-hidden" for="first-name">First name</label>
   <input id="first-name" placeholder="First Name" />
 
-  <button onClick="{handleEditUserClick}">
+  <button onClick={handleEditUserClick}>
     <span className="visually-hidden">Edit user</span>
   </button>
 
-  <a href="{AppRoute.DASHBOARD}">
+  <a href={AppRoute.DASHBOARD}>
     <span className="visually-hidden">Go to dashboard</span>
   </a>
 
@@ -892,12 +892,12 @@
     <input placeholder="First Name" />
   </label>
 
-  <button onClick="{handleEditUserClick}">
+  <button onClick={handleEditUserClick}>
     <img src="img/user.svg" alt="" />
     <span className="visually-hidden">Edit user</span>
   </button>
 
-  <a href="{AppRoute.DASHBOARD}">
+  <a href={AppRoute.DASHBOARD}>
     <img src="img/arrow.svg" alt="" />
     <span className="visually-hidden">Go to dashboard</span>
   </a>
@@ -1068,7 +1068,7 @@
     <p>
 
   ```tsx
-  <ListItem onClick="{handleBtnClick}" />
+  <ListItem onClick={handleBtnClick} />
   ```
 
     </p>
