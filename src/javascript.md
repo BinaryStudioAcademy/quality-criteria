@@ -146,15 +146,72 @@
     </p>
   </details>
 
-- **B11**. While interacting with elements (hovering, clicking, etc.), neither the element itself nor the elements around / inside its block change their position.
+- <details>
+    <summary>
+      <b>B11.</b> Nesting of selectors is no more than two levels.
+    </summary>
+    <p>
+
+  Bad
+
+  ```css
+  /* components/items-list/styles.module.css */
+
+  .wrapper .column .text {
+    text-align: center;
+  }
+
+  .wrapper {
+    display: grid;
+
+    .column {
+      background-color: red;
+
+      .text {
+        text-align: center;
+      }
+    }
+  }
+  ```
+
+  Good:
+
+  ```css
+  /* components/items-list/styles.module.css */
+
+  .column .text {
+    text-align: center;
+  }
+
+  .text {
+    text-align: center;
+  }
+
+  .wrapper {
+    display: grid;
+
+    .column {
+      background-color: red;
+    }
+
+    .text {
+      text-align: center;
+    }
+  }
+  ```
+
+    </p>
+  </details>
+
+- **B12**. While interacting with elements (hovering, clicking, etc.), neither the element itself nor the elements around / inside its block change their position.
 
 ### Fonts
 
-- **B12**. Non-standard fonts are connected locally.
+- **B13**. Non-standard fonts are connected locally.
 
 - <details>
     <summary>
-      <b>B13.</b> Alternate font options specified.
+      <b>B14.</b> Alternate font options specified.
     </summary>
     <p>
 
@@ -179,11 +236,11 @@
 
 ### Naming
 
-- **B14.** Names of variables, parameters, properties and methods begin with a lowercase letter and are written in `camelCase` notation.
+- **B15.** Names of variables, parameters, properties and methods begin with a lowercase letter and are written in `camelCase` notation.
 
 - <details>
     <summary>
-      <b>B15.</b> English nouns are used as variable and property names.
+      <b>B16.</b> English nouns are used as variable and property names.
     </summary>
     <p>
 
@@ -194,7 +251,7 @@
 
 - <details>
     <summary>
-      <b>B16.</b> Variable names do not use the data type.
+      <b>B17.</b> Variable names do not use the data type.
     </summary>
     <p>
 
@@ -225,7 +282,7 @@
 
 - <details>
     <summary>
-      <b>B17.</b> Arrays are named plural nouns.
+      <b>B18.</b> Arrays are named plural nouns.
     </summary>
     <p>
 
@@ -258,7 +315,7 @@
 
 - <details>
     <summary>
-      <b>B18.</b> Boolean variables start with a prefix that can be answered with "yes".
+      <b>B19.</b> Boolean variables start with a prefix that can be answered with "yes".
     </summary>
     <p>
 
@@ -297,7 +354,7 @@
 
 - <details>
     <summary>
-      <b>B19.</b> Function or method begins with a verb.
+      <b>B20.</b> Function or method begins with a verb.
     </summary>
     <p>
 
@@ -344,7 +401,7 @@
 
 - <details>
     <summary>
-      <b>B20.</b> Classes are named with English nouns. The class name starts with a capital letter.
+      <b>B21.</b> Classes are named with English nouns. The class name starts with a capital letter.
     </summary>
     <p>
 
@@ -366,7 +423,7 @@
 
 - <details>
     <summary>
-      <b>B21.</b> Constant names are written in capital letters.
+      <b>B22.</b> Constant names are written in capital letters.
     </summary>
     <p>
 
@@ -382,7 +439,7 @@
 
 - <details>
     <summary>
-      <b>B22.</b> Enums are named by English nouns and begin with an uppercase (capital) letter. Keys are declared in constant format (with uppercase letters).
+      <b>B23.</b> Enums are named by English nouns and begin with an uppercase (capital) letter. Keys are declared in constant format (with uppercase letters).
     </summary>
     <p>
 
@@ -411,7 +468,7 @@
 
 - <details>
     <summary>
-      <b>B23.</b> <code>kebab-case</code> is used to name files/folders (names are written in lowercase letters, words are separated by hyphens).
+      <b>B24.</b> <code>kebab-case</code> is used to name files/folders (names are written in lowercase letters, words are separated by hyphens).
     </summary>
     <p>
 
@@ -437,13 +494,13 @@
     </p>
   </details>
 
-- **B24.** There is no transliteration in any form (in file names, classes, variables, etc.).
+- **B25.** There is no transliteration in any form (in file names, classes, variables, etc.).
 
 ### Formatting
 
 - <details>
     <summary>
-      <b>B25.</b> The code matches the style of the project.
+      <b>B27.</b> The code matches the style of the project.
     </summary>
     <p>
 
@@ -456,7 +513,7 @@
 
 - <details>
     <summary>
-      <b>B26.</b> Curly braces are required everywhere.
+      <b>B27.</b> Curly braces are required everywhere.
     </summary>
     <p>
 
@@ -515,7 +572,7 @@
 
 - <details>
     <summary>
-      <b>B27.</b> All source files follow the recommended structure.
+      <b>B28.</b> All source files follow the recommended structure.
     </summary>
     <p>
 
@@ -548,7 +605,7 @@
 
 - <details>
     <summary>
-      <b>B28.</b> Sets of constants of the same type are collected into Enums.
+      <b>B29.</b> Sets of constants of the same type are collected into Enums.
     </summary>
     <p>
 
@@ -600,7 +657,7 @@
 
 - <details>
     <summary>
-      <b>B29.</b> All class properties and methods are marked with member access (private , public or protected).
+      <b>B30.</b> All class properties and methods are marked with member access (private , public or protected).
     </summary>
     <p>
 
@@ -651,13 +708,13 @@
     </p>
   </details>
 
-- **B30**. The code does not use “magic values”, each of them has a separate variable named as a constant.
+- **B31**. The code does not use “magic values”, each of them has a separate variable named as a constant.
 
 ### Rubbish
 
 - <details>
     <summary>
-      <b>B31.</b> The versions of dependencies used are fixed in <code>package.json</code>.
+      <b>B32.</b> The versions of dependencies used are fixed in <code>package.json</code>.
     </summary>
     <p>
 
@@ -668,7 +725,7 @@
 
 - <details>
     <summary>
-      <b>B32.</b> There are no unused dependencies in the project.
+      <b>B33.</b> There are no unused dependencies in the project.
     </summary>
     <p>
 
@@ -679,7 +736,7 @@
 
 - <details>
     <summary>
-      <b>B33.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
+      <b>B34.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
     </summary>
     <p>
 
@@ -690,11 +747,11 @@
 
 ### Correctness
 
-- **B34.** Constants and enums are not redefined anywhere in the code.
+- **B35.** Constants and enums are not redefined anywhere in the code.
 
 - <details>
     <summary>
-      <b>B35.</b> Potentially incorrect operations are missing. API is used correctly.
+      <b>B36.</b> Potentially incorrect operations are missing. API is used correctly.
     </summary>
     <p>
 
@@ -769,7 +826,7 @@
 
 - <details>
     <summary>
-      <b>B36.</b> Modules do not export mutable variables.
+      <b>B37.</b> Modules do not export mutable variables.
     </summary>
     <p>
     A module should not export a variable whose value may change in the future.
@@ -795,7 +852,7 @@
 
 - <details>
     <summary>
-      <b>B37.</b> The name of the module corresponds to its content.
+      <b>B38.</b> The name of the module corresponds to its content.
     </summary>
     <p>
 
@@ -810,7 +867,7 @@
 
 - <details>
     <summary>
-      <b>B39.</b> Event handlers are added and removed in a timely manner.
+      <b>B40.</b> Event handlers are added and removed in a timely manner.
     </summary>
     <p>
 
@@ -821,11 +878,11 @@
 
 ### Database
 
-- **B40**. 🗄 It is forbidden to use the GET method to write data.
+- **B41**. 🗄 It is forbidden to use the GET method to write data.
 
 - <details>
     <summary>
-      <b>B41.</b> 🗄 There are no SQL Injections in the code.
+      <b>B42.</b> 🗄 There are no SQL Injections in the code.
     </summary>
     <p>
 
@@ -836,7 +893,7 @@
 
 - <details>
     <summary>
-      <b>B42.</b> 🗄 Code protected from XSS.
+      <b>B43.</b> 🗄 Code protected from XSS.
     </summary>
     <p>
 
@@ -845,9 +902,9 @@
     </p>
   </details>
 
-- **B43.** 🗄 Passwords are always hashed.
+- **B44.** 🗄 Passwords are always hashed.
 
-- **B44.** 🗄 Migrations roll without errors in two ways (up and down) without any errors. Data consistency is preserved after every migration.
+- **B45.** 🗄 Migrations roll without errors in two ways (up and down) without any errors. Data consistency is preserved after every migration.
 
 ## Advance
 
