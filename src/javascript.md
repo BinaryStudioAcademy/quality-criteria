@@ -63,7 +63,7 @@
 
 ### Styles
 
-- **B8**. The layout of the blocks on the page is made by `flex` and `grid`.
+- **B8**. The layout of the blocks on the page is made by `flex` and/or `grid`.
 
 - <details>
     <summary>
