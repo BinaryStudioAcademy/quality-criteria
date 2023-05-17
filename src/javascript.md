@@ -918,7 +918,7 @@
 
   Example:
 
-  If you use css-nesting it should be used through all the project (all style files must be written using nesting). If you use interfaces with `I` (ex. `IUser`) approach it should be used through all the project (all interfaces must be written with `I` prefix).
+  If you use css-nesting it should be used through all the project (all style files must be written using nesting). If you use interfaces with `I` (ex. `IUser`) approach it should be used through all the project (all interfaces must be written with `I` prefix). If you use TS Enums approach it should be used through all the project (you can not use both TS Enum and JS Enum (JS plain object with `as const`)).
 
     </p>
   </details>
