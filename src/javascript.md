@@ -6,44 +6,184 @@
 
 - <details>
     <summary>
-      <b>B1.</b> The code corresponds to the Technical Task.
+      <b>B1.</b> There are no unhandled errors while code executing.
     </summary>
     <p>
 
-  All the mandatory tasks of the TT have been fulfilled.
+  While data loading and working with the app, there are no errors, the app does not break.
+
+    </p>
+  </details>
+
+- **B2**. The code is cross-browser (the last versions of Chrome, Firefox and Safari), works correctly in LTS version of the server environment (NodeJS, Deno) and does not cause errors on different operating systems (Windows, Linux and MacOS).
+
+### Markup
+
+- <details>
+    <summary>
+      <b>B3.</b> There are no markup errors.
+    </summary>
+    <p>
+
+  Validators:
+
+  - https://validator.w3.org/nu/
+  - https://caninclude.glitch.me/
+
+  _Warnings are allowed._
 
     </p>
   </details>
 
 - <details>
     <summary>
-      <b>B2.</b> No unhandled errors occur when executing code.
+      <b>B4.</b> The minimum possible number of HTML elements has been used (no extra elements).
     </summary>
     <p>
 
-  Data loading and working with the app, no errors occur, the app doesn’t break.
+  There should be no extra wrappers and blocks that are used for decoration and can be replaced with pseudo-elements.
 
     </p>
   </details>
 
-- **B3**. The code is cross-browser and does not cause errors in different browsers and different operating systems.
+- **B5**. Content images in `<img>` have the `alt` attribute filled.
+
+- **B6**. The size is specified in the `<svg>` tag for inline SVG images.
+
+- <details>
+    <summary>
+      <b>B7.</b> Vector graphics are used.
+    </summary>
+    <p>
+
+  If there are svg images in the design, the use of PNG and other formats is prohibited.
+
+    </p>
+  </details>
+
+### Styles
+
+- **B8**. The layout of the blocks on the page is made by `flex` and `grid`.
+
+- <details>
+    <summary>
+      <b>B9.</b> <code>!important</code> is forbidden.
+    </summary>
+    <p>
+
+  The `important` keyword is only allowed for overrides in libraries. It is forbidden to use for writing your own styles.
+
+    </p>
+  </details>
+
+- <details>
+    <summary>
+      <b>B10.</b> No global tag styles. Only class selectors or a cascade are used to set styles.
+    </summary>
+    <p>
+
+  Global styles are only available in global style files (`scaffolding.css`, `app.css`, `reset.css` (🥲), etc).
+
+  Bad:
+
+  ```css
+  /* components/items-list/styles.module.css */
+
+  .wrapper div {
+    display: flex;
+  }
+
+  p {
+    text-align: center;
+  }
+  ```
+
+  Good:
+
+  ```css
+  /* components/items-list/styles.module.css */
+
+  .wrapper .column {
+    display: flex;
+  }
+
+  .text {
+    text-align: center;
+  }
+  ```
+
+  Exceptions:
+
+  `id` and other selectors other than `class` selector only allowed to be used to override libraries styles
+
+  Bad
+
+  ```css
+  /* components/items-list/styles.module.css – YOUR component */
+
+  #list-item {
+    display: grid;
+  }
+  ```
+
+  Good
+
+  ```css
+  /* components/accordion/styles.module.css – YOUR overrides to library components */
+
+  #accordion {
+    display: grid;
+  }
+
+  /* styles/scaffolding.css */
+
+  /* root – default convention for the root element in React framework */
+  #root {
+    min-height: 100vh;
+  }
+  ```
+
+    </p>
+  </details>
+
+- **B11**. While interacting with elements (hovering, clicking, etc.), neither the element itself nor the elements around / inside its block change their position.
+
+### Fonts
+
+- **B12**. Non-standard fonts are connected locally.
+
+- <details>
+    <summary>
+      <b>B13.</b> Alternate font options specified.
+    </summary>
+    <p>
+
+  The font order:
+
+  - Main font.
+  - Safe font.
+  - Font type.
+
+  Example:
+
+  ```css
+  /* styles/scaffolding.css */
+
+  body {
+    font-family: Roboto, Arial, sans-serif;
+  }
+  ```
+
+    </p>
+  </details>
 
 ### Naming
 
-- <details>
-    <summary>
-      <b>B4.</b> Names of variables, parameters, properties and methods begin with a lowercase letter and are written in <code>lowerCamelCase</code> notation.
-    </summary>
-    <p>
-
-  `Enums`, <code>Classes</code> and <code>Types</code> are exceptions.
-
-    </p>
-  </details>
+- **B14.** Names of variables, parameters, properties and methods begin with a lowercase letter and are written in `camelCase` notation.
 
 - <details>
     <summary>
-      <b>B5.</b> English nouns are used as variable and property names.
+      <b>B15.</b> English nouns are used as variable and property names.
     </summary>
     <p>
 
@@ -54,7 +194,38 @@
 
 - <details>
     <summary>
-      <b>B6.</b> Arrays are named plural nouns.
+      <b>B16.</b> Variable names do not use the data type.
+    </summary>
+    <p>
+
+  Bad:
+
+  ```javascript
+  const filtersArray = ['all', 'past', 'feature'];
+
+  const catObject = {
+    name: 'Pit',
+    age: 7,
+  };
+  ```
+
+  Good:
+
+  ```javascript
+  const filters = ['all', 'past', 'feature'];
+
+  const cat = {
+    name: 'Pit',
+    age: 7,
+  };
+  ```
+
+    </p>
+  </details>
+
+- <details>
+    <summary>
+      <b>B17.</b> Arrays are named plural nouns.
     </summary>
     <p>
 
@@ -87,7 +258,7 @@
 
 - <details>
     <summary>
-      <b>B7.</b> Boolean variables start with a prefix that can be answered with "yes".
+      <b>B18.</b> Boolean variables start with a prefix that can be answered with "yes".
     </summary>
     <p>
 
@@ -126,14 +297,13 @@
 
 - <details>
     <summary>
-      <b>B8.</b> Function or method begins with a verb.
+      <b>B19.</b> Function or method begins with a verb.
     </summary>
     <p>
 
   Exceptions:
 
-  1. Functions constructors.
-  2. Handler functions or callbacks.
+  Handler functions or callbacks.
 
   Bad:
 
@@ -174,54 +344,7 @@
 
 - <details>
     <summary>
-      <b>B9.</b> Constant names are written in capital letters.
-    </summary>
-    <p>
-
-  Words are separated by underscores (`UPPER_SNAKE_CASE`), for example:
-
-  ```javascript
-  const MAX_HEIGHT = 6996;
-  const IDX_NOT_FOUND = -1;
-  ```
-
-    </p>
-  </details>
-
-- <details>
-    <summary>
-      <b>B10.</b> Variable names do not use the data type.
-    </summary>
-    <p>
-
-  Bad:
-
-  ```javascript
-  const filtersArray = ['all', 'past', 'feature'];
-
-  const catObject = {
-    name: 'Pit',
-    age: 7,
-  };
-  ```
-
-  Good:
-
-  ```javascript
-  const filters = ['all', 'past', 'feature'];
-
-  const cat = {
-    name: 'Pit',
-    age: 7,
-  };
-  ```
-
-    </p>
-  </details>
-
-- <details>
-    <summary>
-      <b>B11.</b> Classes are named with English nouns. The class name starts with a capital letter.
+      <b>B20.</b> Classes are named with English nouns. The class name starts with a capital letter.
     </summary>
     <p>
 
@@ -243,7 +366,23 @@
 
 - <details>
     <summary>
-      <b>B12.</b> Enums are named by English nouns and begin with an uppercase (capital) letter. Keys are declared in constant format (with uppercase letters)
+      <b>B21.</b> Constant names are written in capital letters.
+    </summary>
+    <p>
+
+  Words are separated by underscores (`UPPER_SNAKE_CASE`), for example:
+
+  ```javascript
+  const MAX_HEIGHT = 6996;
+  const IDX_NOT_FOUND = -1;
+  ```
+
+    </p>
+  </details>
+
+- <details>
+    <summary>
+      <b>B22.</b> Enums are named by English nouns and begin with an uppercase (capital) letter. Keys are declared in constant format (with uppercase letters).
     </summary>
     <p>
 
@@ -255,12 +394,6 @@
     notFound: 404,
     badRequest: 400,
   };
-
-  enum STATUS_CODE {
-    Ok = 200,
-    NotFound = 404,
-    BadRequest = 400,
-  }
   ```
 
   Good:
@@ -271,12 +404,6 @@
     NOT_FOUND: 404,
     BAD_REQUEST: 400,
   };
-
-  enum StatusCode {
-    OK = 200,
-    NOT_FOUND = 404,
-    BAD_REQUEST = 400,
-  }
   ```
 
     </p>
@@ -284,7 +411,7 @@
 
 - <details>
     <summary>
-      <b>B13.</b> File/folder names are written in lowercase letters. Words are separated by hyphens.
+      <b>B23.</b> <code>kebab-case</code> is used to name files/folders (names are written in lowercase letters, words are separated by hyphens).
     </summary>
     <p>
 
@@ -304,14 +431,32 @@
   // src/services/user-service/user-service.ts
   ```
 
+  Exceptions:
+
+  Framework/library files that cannot work with another case.
     </p>
   </details>
 
-### Formatting and Code Styling
+- **B24.** There is no transliteration in any form (in file names, classes, variables, etc.).
+
+### Formatting
 
 - <details>
     <summary>
-      <b>B14.</b> Curly braces are required everywhere.
+      <b>B25.</b> The code matches the style of the project.
+    </summary>
+    <p>
+
+  There are no errors while checking the project with linters (ESLint, StyleLint, Prettier, etc). All types of linters are at the discretion of the team.
+
+  Rules are not disabled anywhere in the source code.
+
+    </p>
+  </details>
+
+- <details>
+    <summary>
+      <b>B26.</b> Curly braces are required everywhere.
     </summary>
     <p>
 
@@ -370,20 +515,7 @@
 
 - <details>
     <summary>
-      <b>B15.</b> The code matches the style of the project.
-    </summary>
-    <p>
-
-  There are no errors when checking the project with `ESLint`, `Stylelint` and `EditorConfigChecker`.
-
-  Rules aren’t overridden anywhere in the source code.
-
-    </p>
-  </details>
-
-- <details>
-    <summary>
-      <b>B16.</b> All source files follow the recommended structure.
+      <b>B27.</b> All source files follow the recommended structure.
     </summary>
     <p>
 
@@ -416,7 +548,7 @@
 
 - <details>
     <summary>
-      <b>B17.</b> Sets of constants of the same type are collected into Enums.
+      <b>B28.</b> Sets of constants of the same type are collected into Enums.
     </summary>
     <p>
 
@@ -431,19 +563,11 @@
   Good:
 
   ```typescript
-    const UsersActionType = {
-      LOAD_USERS_START: 'LOAD_USERS_START',
-      LOAD_USERS_END: 'LOAD_USERS_END',
-      LOAD_USERS_ERROR: 'LOAD_USERS_ERROR'
-    }
-
-    // or
-
-    enum UsersActionType = {
-      LOAD_USERS_START = 'LOAD_USERS_START',
-      LOAD_USERS_END = 'LOAD_USERS_END',
-      LOAD_USERS_ERROR = 'LOAD_USERS_ERROR'
-    }
+  const UsersActionType = {
+    LOAD_USERS_START: 'LOAD_USERS_START',
+    LOAD_USERS_END: 'LOAD_USERS_END',
+    LOAD_USERS_ERROR: 'LOAD_USERS_ERROR',
+  };
   ```
 
     </p>
@@ -476,7 +600,7 @@
 
 - <details>
     <summary>
-      <b>B18.</b> Class properties and methods are marked.
+      <b>B29.</b> All class properties and methods are marked with member access (private , public or protected).
     </summary>
     <p>
 
@@ -498,23 +622,13 @@
 
   ```typescript
   class Animal {
-    constructor({ name }) {
-      this._privateName = name;
-    }
+    #privateNam;
 
-    getPrivateName() {
-      return this._privateName;
-    }
-  }
-
-  // or
-
-  class Animal {
-    constructor({ name }) {
+    public constructor({ name }) {
       this.#privateName = name;
     }
 
-    getPrivateName() {
+    public getPrivateName() {
       return this.#privateName;
     }
   }
@@ -524,11 +638,11 @@
   class Animal {
     private privateName;
 
-    constructor({ name }) {
+    public constructor({ name }) {
       this.privateName = name;
     }
 
-    private getPrivateName() {
+    public getPrivateName() {
       return this.privateName;
     }
   }
@@ -537,11 +651,13 @@
     </p>
   </details>
 
+- **B30**. The code does not use “magic values”, each of them has a separate variable named as a constant.
+
 ### Rubbish
 
 - <details>
     <summary>
-      <b>B19.</b> The versions of dependencies used are fixed in <code>package.json</code>.
+      <b>B31.</b> The versions of dependencies used are fixed in <code>package.json</code>.
     </summary>
     <p>
 
@@ -552,7 +668,18 @@
 
 - <details>
     <summary>
-      <b>B20.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
+      <b>B32.</b> There are no unused dependencies in the project.
+    </summary>
+    <p>
+
+  Node: Some dependencies are needed by other dependencies. Ex. `pg` package is required for most of ORM packages.
+
+    </p>
+  </details>
+
+- <details>
+    <summary>
+      <b>B33.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
     </summary>
     <p>
 
@@ -563,35 +690,15 @@
 
 ### Correctness
 
-- <details>
-    <summary>
-      <b>B21.</b> Constants and enums aren't redefined anywhere in the code.
-    </summary>
-    <p>
-
-  Constants and enum are read-only and are never redefined.
-
-    </p>
-  </details>
+- **B34.** Constants and enums are not redefined anywhere in the code.
 
 - <details>
     <summary>
-      <b>B22.</b> Strict mode is on.
+      <b>B35.</b> Potentially incorrect operations are missing. API is used correctly.
     </summary>
     <p>
 
-  Unsafe constructions are prohibited in the code. The code runs in strict mode. The `'use strict'` directive is set at the beginning of js-files; or ES modules are used, which by default run in strict mode.
-
-    </p>
-  </details>
-
-- <details>
-    <summary>
-      <b>B23.</b> Potentially incorrect operations are missing.
-    </summary>
-    <p>
-
-  For example, incorrect addition of two operands as strings. The problem of concatenation precedence over addition.
+  For example, sum of two values with different data types.
 
   Bad:
 
@@ -619,6 +726,42 @@
   const minutesNumber = Math.trunc(seconds / 60);
   ```
 
+  Valid values are passed as expected by the specification.
+
+  Bad:
+
+  ```typescript
+  const isPressed = element.getAttribute('aria-pressed', false);
+  ```
+
+  Good:
+
+  ```typescript
+  const isPressed = element.getAttribute('aria-pressed');
+  ```
+
+  ```typescript
+  let greeting = 'Привет';
+
+  wizards.map((wizard) => {
+    greeting += `, ${wizard.name}`;
+  });
+
+  console.log(`${greeting}!`);
+  ```
+
+  Good:
+
+  ```typescript
+  const greeting = 'Привет';
+
+  const names = wizards.map((wizard) => {
+    return wizard.name;
+  });
+
+  console.log(`${greeting} ${names.join(', ')}!`);
+  ```
+
     </p>
   </details>
 
@@ -626,10 +769,10 @@
 
 - <details>
     <summary>
-      <b>B24.</b> Modules do not export mutable variables.
+      <b>B36.</b> Modules do not export mutable variables.
     </summary>
     <p>
-    A module shouldn't export a variable whose value may change in the future.
+    A module should not export a variable whose value may change in the future.
 
   Bad:
 
@@ -652,7 +795,7 @@
 
 - <details>
     <summary>
-      <b>B25.</b> The name of the module corresponds to its content.
+      <b>B37.</b> The name of the module corresponds to its content.
     </summary>
     <p>
 
@@ -661,45 +804,13 @@
     </p>
   </details>
 
-- <details>
-    <summary>
-      <b>B26.</b> No logic in <code>index</code> files.
-    </summary>
-    <p>
-
-  Files named `index` are used for export only. They should not contain additional code that can be used in other parts of the application.
-
-  Bad:
-
-  ```typescript
-  // logger/index.ts
-  const rewriteFile = (filePath: string) => {};
-
-  export { rewriteFile };
-  ```
-
-  Good:
-
-  ```typescript
-  // logger/index.ts
-  import { rewriteFile } from './rewrite-file';
-  import { somethingElse } from './something-else';
-
-  export { rewriteFile, somethingElse };
-  ```
-
-    </p>
-  </details>
-
-### Magic
-
-- **B27**. The code doesn’t use “magic values”, each of them has a separate variable named as a constant.
+- **B38.** No `index` files. `index` file is only used as the entry point of the application.
 
 ### Security
 
 - <details>
     <summary>
-      <b>B28.</b> Event handlers are added and removed in a timely manner.
+      <b>B39.</b> Event handlers are added and removed in a timely manner.
     </summary>
     <p>
 
@@ -708,13 +819,13 @@
     </p>
   </details>
 
-- **B29**. The project works correctly in the current NodeJS LTS version.
+### Database
 
-- **B30**. 🗄 It is forbidden to use the GET method to write data.
+- **B40**. 🗄 It is forbidden to use the GET method to write data.
 
 - <details>
     <summary>
-      <b>B31.</b> 🗄 There are no SQL Injections in the code.
+      <b>B41.</b> 🗄 There are no SQL Injections in the code.
     </summary>
     <p>
 
@@ -725,37 +836,74 @@
 
 - <details>
     <summary>
-      <b>B32.</b> 🗄 Code protected from XSS.
+      <b>B42.</b> 🗄 Code protected from XSS.
     </summary>
     <p>
 
-  It isn’t allowed to display unfiltered information received from the user, because XSS attack is possible.
+  It is not allowed to display unfiltered information received from the user, because XSS attack is possible.
 
     </p>
   </details>
 
-- <details>
-    <summary>
-      <b>B33.</b> 🗄 Password is always hashed.
-    </summary>
-    <p>
+- **B43.** 🗄 Passwords are always hashed.
 
-  The database shouldn’t store passwords as clear text. The hash of the password is saved instead of passwords. Use cryptographic hashes or secure key derivation functions, such as `Argon2`. Add salt and pepper to passwords manually, if it is not supported by selected library/function.
-
-    </p>
-  </details>
+- **B44.** 🗄 Migrations roll without errors in two ways (up and down) without any errors. Data consistency is preserved after every migration.
 
 ## Advance
 
-### Objective
+### Markup
 
 - <details>
     <summary>
-      <b>A1.</b> The Technical Task is implemented in full.
+      <b>A1.</b> All interactive elements have a description.
     </summary>
     <p>
 
-  All mandatory and optional tasks of the TT have been fulfilled.
+  Bad:
+
+  ```html
+  <input placeholder="First Name" />
+
+  <button onClick="{handleEditUserClick}"></button>
+
+  <a href="{AppRoute.DASHBOARD}"></a>
+
+  <button onClick="{handleEditUserClick}"><img src="img/user.svg" /></button>
+
+  <a href="{AppRoute.DASHBOARD}"><img src="img/arrow.svg" /></a>
+  ```
+
+  Good:
+
+  ```html
+  <label class="visually-hidden" for="first-name">First name</label>
+  <input id="first-name" placeholder="First Name" />
+
+  <button onClick="{handleEditUserClick}">
+    <span className="visually-hidden">Edit user</span>
+  </button>
+
+  <a href="{AppRoute.DASHBOARD}">
+    <span className="visually-hidden">Go to dashboard</span>
+  </a>
+
+  <label>
+    <span class="visually-hidden">First name</span>
+    <input placeholder="First Name" />
+  </label>
+
+  <button onClick="{handleEditUserClick}">
+    <img src="img/user.svg" alt="" />
+    <span className="visually-hidden">Edit user</span>
+  </button>
+
+  <a href="{AppRoute.DASHBOARD}">
+    <img src="img/arrow.svg" alt="" />
+    <span className="visually-hidden">Go to dashboard</span>
+  </a>
+
+  <input aria-label="First name" placeholder="First Name" />
+  ```
 
     </p>
   </details>
@@ -764,49 +912,22 @@
 
 - <details>
     <summary>
-      <b>A2.</b> Abstract classes or interfaces should have generic names and don't contain implementation details. For concrete classes add implementation details if more than one implementation is possible, but also keep context details.
+      <b>A2.</b> Uniform writing and formatting of code in all file types (HTML, CSS, JS, JSX, ect.).
     </summary>
     <p>
 
-  Bad:
+  Example:
 
-  ```typescript
-  //Storage what? LocalStorage, FileStorage, Storage as an entity in your domain?
-  class Storage {
-    public getItem(location: string) {}
-  }
-
-  //Too concrete, requires knowing what S3 is, context derivation is required
-  class S3 {
-    public getItem(location: string) {}
-  }
-  ```
-
-  Good:
-
-  ```typescript
-  //Clear intent, this is infrastructural code
-  interface FileStorage {
-    getItem(location: string): Promise<Buffer>
-  }
-
-  //We know that this is an S3 implementation of FileStorage just by checking the name
-  class S3FileStorage implements FileStorage {
-    ...
-  }
-
-  //Although this does not implement any interface, other implementations are possible, so we add implementation details
-  class EuropeanCentralBankCurrencyConverter {
-    public getConversionRate(from: Currency, to: Currency);
-  }
-  ```
+  If you use css-nesting it should be used through all the project (all style files must be written using nesting). If you use interfaces with `I` (ex. `IUser`) approach it should be used through all the project (all interfaces must be written with `I` prefix).
 
     </p>
   </details>
 
+- **A3.** Abstract classes or interfaces should have generic names and don't contain implementation details.
+
 - <details>
     <summary>
-      <b>A3.</b> The names of methods/functions and properties/variables of objects don't contain the names of object/module.
+      <b>A4.</b> The names of methods/functions and properties/variables of objects don't contain the names of object/module.
     </summary>
     <p>
 
@@ -862,20 +983,11 @@
 
 ### Uniformity
 
-- <details>
-    <summary>
-      <b>A4.</b> All functions are declared uniformly.
-    </summary>
-    <p>
-
-  Arrow functions are used when declaring functions. A special method syntax is used to declare object methods.
-
-    </p>
-  </details>
+- **A5**. 🔵 Interfaces are only used to `implement` a class.
 
 - <details>
     <summary>
-      <b>A5.</b> A uniform naming style for variables is used.
+      <b>A6.</b> A uniform naming style for variables is used.
     </summary>
     <p>
 
@@ -912,7 +1024,7 @@
 
 - <details>
     <summary>
-      <b>A6.</b> When using the API that supports multiple use cases, one method is used.
+      <b>A7.</b> One approach is used while using API that supports multiple approaches.
     </summary>
     <p>
 
@@ -951,25 +1063,7 @@
 
 - <details>
     <summary>
-      <b>A7.</b> Methods/properties in classes are ordered.
-    </summary>
-    <p>
-
-  1. Constructor.
-  2. Class property getters and setters.
-  3. The main methods of the class:
-  4. Overloaded methods of the parent class.
-  5. Class methods;
-  6. Private methods;
-  7. Event handlers.
-  8. Static methods.
-
-    </p>
-  </details>
-
-- <details>
-    <summary>
-      <b>A8.</b> ⚛️ Callbacks passed to <code>props</code> are named via <code>on</code>.
+      <b>A8.</b> ⚛️ Callbacks passed to <code>props</code> are named with <code>on</code> prefix.
     </summary>
     <p>
 
@@ -1002,7 +1096,7 @@
 
 - <details>
     <summary>
-      <b>A9.</b> ⚛️ Component methods are named via <code>handle</code>
+      <b>A9.</b> ⚛️ Component functions are named with <code>handle</code> prefix.
     </summary>
     <p>
 
@@ -1017,119 +1111,15 @@
     </p>
   </details>
 
-### Correctness
-
-- <details>
-    <summary>
-      <b>A10.</b> API uses correctly
-    </summary>
-    <p>
-
-  Valid values are passed as expected by the specification.
-
-  Bad:
-
-  ```typescript
-  const isPressed = element.getAttribute('aria-pressed', false);
-  ```
-
-  Good:
-
-  ```typescript
-  const isPressed = element.getAttribute('aria-pressed');
-  ```
-
-  ```typescript
-  let greeting = 'Привет';
-
-  wizards.map((wizard) => {
-    greeting += `, ${wizard.name}`;
-  });
-
-  console.log(`${greeting}!`);
-  ```
-
-  Good:
-
-  ```typescript
-  const greeting = 'Привет';
-
-  const names = wizards.map((wizard) => {
-    return wizard.name;
-  });
-
-  console.log(`${greeting} ${names.join(', ')}!`);
-  ```
-
-    </p>
-  </details>
-
-### A11y
-
-- <details>
-    <summary>
-      <b>A11.</b> 🫂 All interactive elements have a description.
-    </summary>
-    <p>
-
-  Bad:
-
-  ```html
-  <input placeholder="First Name" />
-
-  <button onClick="{handleEditUserClick}"></button>
-
-  <a href="{AppRoute.DASHBOARD}"></a>
-
-  <button onClick="{handleEditUserClick}"><img src="img/user.svg" /></button>
-
-  <a href="{AppRoute.DASHBOARD}"><img src="img/arrow.svg" /></a>
-  ```
-
-  Good:
-
-  ```html
-  <label class="visually-hidden" for="first-name">First name</label>
-  <input id="first-name" placeholder="First Name" />
-
-  <button onClick="{handleEditUserClick}">
-    <span className="visually-hidden">Edit user</span>
-  </button>
-
-  <a href="{AppRoute.DASHBOARD}">
-    <span className="visually-hidden">Go to dashboard</span>
-  </a>
-
-  <label>
-    <span class="visually-hidden">First name</span>
-    <input placeholder="First Name" />
-  </label>
-
-  <button onClick="{handleEditUserClick}">
-    <img src="img/user.svg" alt="" />
-    <span className="visually-hidden">Edit user</span>
-  </button>
-
-  <a href="{AppRoute.DASHBOARD}">
-    <img src="img/arrow.svg" alt="" />
-    <span className="visually-hidden">Go to dashboard</span>
-  </a>
-
-  <input aria-label="First name" placeholder="First Name" />
-  ```
-
-    </p>
-  </details>
-
 ### Modules
 
-- **A12.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
+- **A10.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
 
 ### Redundancy
 
 - <details>
     <summary>
-      <b>A13.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
+      <b>A11.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
     </summary>
     <p>
 
@@ -1156,7 +1146,7 @@
 
 - <details>
     <summary>
-      <b>A14.</b> Conditions are simplified.
+      <b>A12.</b> Conditions are simplified.
     </summary>
     <p>
 
@@ -1187,13 +1177,15 @@
 
 ### Optimality
 
+- **A13**. 🔵 `unknown` is preferred over `any`. `any` is prohibited.
+
 - <details>
     <summary>
-      <b>A15.</b> To iterate over arrays and data structures that can be iterated over, (Iterable) use the <code>for .. of</code>.
+      <b>A16.</b> Use the <code>for/of</code> to iterate over arrays and data structures that can be iterated over(Iterable).
     </summary>
     <p>
 
-  Where an array element index isn’t required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
+  Where an array element index is not required, or where all elements of an iterable data structure need to be traversed, a `for .. of` loop is used instead of a `for` loop.
 
   Bad:
 
@@ -1215,17 +1207,17 @@
     </p>
   </details>
 
-### Complexity and Readability.
+### Complexity and Readability
 
-- **A16** Long functions and methods are split into several smaller ones.
+- **A14.** Long functions and methods are split into several smaller ones.
 
 - <details>
     <summary>
-      <b>A17.</b> Iterators for arrays are used to work with JS collections.
+      <b>A15.</b> Iterators for arrays are used to work with JS collections.
     </summary>
     <p>
 
-  Iterators are used to transform arrays — `forEach`, `map`, `filter`, and etc.
+  Iterators are used to with arrays — `forEach`, `map`, `filter`, and etc.
 
   ```typescript
   elements.forEach((element) => {
