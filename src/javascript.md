@@ -420,7 +420,7 @@
 
     </p>
 
-    <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
+  In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)
 
   Bad:
 
@@ -480,7 +480,7 @@
 
     </p>
 
-    <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
+  In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)
 
   Bad:
 
