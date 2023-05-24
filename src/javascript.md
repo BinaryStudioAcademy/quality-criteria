@@ -767,7 +767,7 @@
 
 - <details>
     <summary>
-      <b>B34.</b> There are no files, modules and parts of code that aren't used in the project code, including commented code pats.
+      <b>B34.</b> There are no files, modules and parts of code that are not used in the project code, including commented code pats.
     </summary>
     <p>
 
@@ -1011,11 +1011,11 @@
     </p>
   </details>
 
-- **A3.** Abstract classes or interfaces should have generic names and don’t contain implementation details.
+- **A3.** Abstract classes or interfaces should have generic names and do not contain implementation details.
 
 - <details>
     <summary>
-      <b>A4.</b> The names of methods/functions and properties/variables of objects don't contain the names of object/module.
+      <b>A4.</b> The names of methods/functions and properties/variables of objects do not contain the names of object/module.
     </summary>
     <p>
 
