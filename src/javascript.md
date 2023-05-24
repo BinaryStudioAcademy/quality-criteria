@@ -419,6 +419,21 @@
   ```
 
     </p>
+
+    <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
+
+  Bad:
+
+  ```typescript
+  class XmlHttpRequest {}
+  ```
+
+  Good:
+
+  ```typescript
+  class XMLHttpRequest {}
+  ```
+
   </details>
 
 - <details>
@@ -464,6 +479,21 @@
   ```
 
     </p>
+
+    <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
+
+  Bad:
+
+  ```typescript
+  const HttpStatusCode = {};
+  ```
+
+  Good:
+
+  ```typescript
+  const HTTPStatusCode = {};
+  ```
+
   </details>
 
 - <details>
@@ -491,6 +521,7 @@
   Exceptions:
 
   Framework/library files that cannot work with another case.
+
     </p>
   </details>
 
