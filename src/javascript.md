@@ -828,8 +828,10 @@
   const isPressed = element.getAttribute('aria-pressed');
   ```
 
+  Bad:
+
   ```typescript
-  let greeting = 'Привет';
+  let greeting = 'Hey';
 
   wizards.map((wizard) => {
     greeting += `, ${wizard.name}`;
@@ -892,7 +894,7 @@
     </p>
   </details>
 
-- **B38.** No `index` files. `index` file can be only used as the entry point of the application.
+- **B39.** No `index` files. `index` file can be only used as the entry point of the application.
 
 ### Security
 
@@ -1216,7 +1218,7 @@
   ```typescript
   let sex;
 
-  if (male) {
+  if (isMale) {
     sex = 'Man';
   } else {
     sex = 'Woman';
@@ -1226,7 +1228,7 @@
   Good:
 
   ```typescript
-  const sex = male ? 'Man' : 'Woman';
+  const sex = isMale ? 'Man' : 'Woman';
   ```
 
     </p>
