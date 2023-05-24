@@ -422,17 +422,18 @@
 
     <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
 
-    Bad: 
+  Bad:
 
-    ```typescript
-      class XmlHttpRequest {}
-    ```
+  ```typescript
+  class XmlHttpRequest {}
+  ```
 
-    Good:
+  Good:
 
-    ```typescript
-      class XMLHttpRequest {}
-    ```
+  ```typescript
+  class XMLHttpRequest {}
+  ```
+
   </details>
 
 - <details>
@@ -481,17 +482,18 @@
 
     <p>In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)</p>
 
-    Bad: 
+  Bad:
 
-    ```typescript
-      const HttpStatusCode {}
-    ```
+  ```typescript
+  const HttpStatusCode = {};
+  ```
 
-    Good:
+  Good:
 
-    ```typescript
-      const HTTPStatusCode {}
-    ```
+  ```typescript
+  const HTTPStatusCode = {};
+  ```
+
   </details>
 
 - <details>
@@ -519,6 +521,7 @@
   Exceptions:
 
   Framework/library files that cannot work with another case.
+
     </p>
   </details>
 
@@ -1008,7 +1011,7 @@
     </p>
   </details>
 
-- **A3.** Abstract classes or interfaces should have generic names and don't contain implementation details.
+- **A3.** Abstract classes or interfaces should have generic names and don’t contain implementation details.
 
 - <details>
     <summary>
