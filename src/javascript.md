@@ -651,10 +651,10 @@
   Good:
 
   ```typescript
-  const UsersActionType = {
-    LOAD_USERS_START: 'LOAD_USERS_START',
-    LOAD_USERS_END: 'LOAD_USERS_END',
-    LOAD_USERS_ERROR: 'LOAD_USERS_ERROR',
+  const UserAction = {
+    LOAD_START: 'LOAD_START',
+    LOAD_END: 'LOAD_END',
+    LOAD_ERROR: 'LOAD_ERROR',
   };
   ```
 
@@ -710,7 +710,7 @@
 
   ```typescript
   class Animal {
-    #privateNam;
+    #privateName;
 
     public constructor({ name }) {
       this.#privateName = name;
@@ -843,7 +843,7 @@
   Good:
 
   ```typescript
-  const greeting = 'Привет';
+  const greeting = 'Hey';
 
   const names = wizards.map((wizard) => {
     return wizard.name;
