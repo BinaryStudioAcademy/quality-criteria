@@ -949,7 +949,7 @@
     </summary>
     <p>
 
-  Prefer modern JS syntax if possible, based on your target of your bundler, usage of transpilers (ex. Babel) and the browsers you support. See some examples below
+  Prefer modern JS syntax if possible, based on your target of your bundler, usage of transpilers (ex. Babel) and the browsers/platforms you support. See some examples below
 
   **Array methods:**
 
