@@ -941,11 +941,82 @@
 
 ## Advance
 
+### Objective
+
+- <details>
+    <summary>
+      <b>A1.</b> Modern syntax is preferred.
+    </summary>
+    <p>
+
+  Prefer modern JS syntax if possible, based on your target of your bundler, usage of transpilers (ex. Babel) and the browsers you support. See some examples below
+
+  **Array methods:**
+
+  Bad:
+
+  ```typescript
+  items.slice().reverse();
+  ```
+
+  Good:
+
+  ```typescript
+  items.toReversed();
+  ```
+
+  **Optional Chaining:**
+
+  Bad:
+
+  ```typescript
+  const userName = user && user.user.name;
+  ```
+
+  Good:
+
+  ```typescript
+  const userName = user?.name;
+  ```
+
+  **Nullish coalescing:**
+
+  Bad:
+
+  ```typescript
+  const userCreatePayload = payload || INITIAL_USER_CREATE_PAYLOAD_VALUES;
+  ```
+
+  Good:
+
+  ```typescript
+  const userCreatePayload = payload ?? INITIAL_USER_CREATE_PAYLOAD_VALUES;
+  ```
+
+  **Top-level await:**
+
+  Bad:
+
+  ```typescript
+  (async () => {
+    await app.run();
+  })();
+  ```
+
+  Good:
+
+  ```typescript
+  await app.run();
+  ```
+
+    </p>
+  </details>
+
 ### Markup
 
 - <details>
     <summary>
-      <b>A1.</b> All interactive elements have a description.
+      <b>A2.</b> All interactive elements have a description.
     </summary>
     <p>
 
@@ -1002,7 +1073,7 @@
 
 - <details>
     <summary>
-      <b>A2.</b> Uniform writing and formatting of code in all file types (HTML, CSS, JS, JSX, ect.).
+      <b>A3.</b> Uniform writing and formatting of code in all file types (HTML, CSS, JS, JSX, ect.).
     </summary>
     <p>
 
@@ -1013,11 +1084,11 @@
     </p>
   </details>
 
-- **A3.** Abstract classes or interfaces should have generic names and do not contain implementation details.
+- **A4.** Abstract classes or interfaces should have generic names and do not contain implementation details.
 
 - <details>
     <summary>
-      <b>A4.</b> The names of methods/functions and properties/variables of objects do not contain the names of object/module.
+      <b>A5.</b> The names of methods/functions and properties/variables of objects do not contain the names of object/module.
     </summary>
     <p>
 
@@ -1073,11 +1144,11 @@
 
 ### Uniformity
 
-- **A5**. 🔵 Interfaces are only used to `implement` a class.
+- **A6**. 🔵 Interfaces are only used to `implement` a class.
 
 - <details>
     <summary>
-      <b>A6.</b> A uniform naming style for variables is used.
+      <b>A7.</b> A uniform naming style for variables is used.
     </summary>
     <p>
 
@@ -1114,7 +1185,7 @@
 
 - <details>
     <summary>
-      <b>A7.</b> One approach is used while using API that supports multiple approaches.
+      <b>A8.</b> One approach is used while using API that supports multiple approaches.
     </summary>
     <p>
 
@@ -1153,7 +1224,7 @@
 
 - <details>
     <summary>
-      <b>A8.</b> ⚛️ Callbacks passed to <code>props</code> are named with <code>on</code> prefix.
+      <b>A9.</b> ⚛️ Callbacks passed to <code>props</code> are named with <code>on</code> prefix.
     </summary>
     <p>
 
@@ -1186,7 +1257,7 @@
 
 - <details>
     <summary>
-      <b>A9.</b> ⚛️ Component functions are named with <code>handle</code> prefix.
+      <b>A10.</b> ⚛️ Component functions are named with <code>handle</code> prefix.
     </summary>
     <p>
 
@@ -1203,13 +1274,13 @@
 
 ### Modules
 
-- **A10.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
+- **A11.** If the same code is repeated in several modules, the repeated part is moved to a separate module.
 
 ### Redundancy
 
 - <details>
     <summary>
-      <b>A11.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
+      <b>A12.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
     </summary>
     <p>
 
@@ -1236,7 +1307,7 @@
 
 - <details>
     <summary>
-      <b>A12.</b> Conditions are simplified.
+      <b>A13.</b> Conditions are simplified.
     </summary>
     <p>
 
@@ -1267,11 +1338,11 @@
 
 ### Optimality
 
-- **A13**. 🔵 `unknown` is preferred over `any`. `any` is prohibited.
+- **A14**. 🔵 `unknown` is preferred over `any`. `any` is prohibited.
 
 - <details>
     <summary>
-      <b>A14.</b> Use the <code>for/of</code> to iterate over arrays and data structures that can be iterated over(Iterable).
+      <b>A15.</b> Use the <code>for/of</code> to iterate over arrays and data structures that can be iterated over(Iterable).
     </summary>
     <p>
 
@@ -1299,11 +1370,11 @@
 
 ### Complexity and Readability
 
-- **A15.** Long functions and methods are split into several smaller ones.
+- **A16.** Long functions and methods are split into several smaller ones.
 
 - <details>
     <summary>
-      <b>A16.</b> Iterators for arrays are used to work with JS collections.
+      <b>A17.</b> Iterators for arrays are used to work with JS collections.
     </summary>
     <p>
 
