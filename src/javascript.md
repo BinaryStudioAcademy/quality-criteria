@@ -420,7 +420,7 @@
 
     </p>
 
-  In cases when there is one or more acronyms in the enum name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)
+  In cases when there is one or more acronyms in the class name, it should have the first acronym in uppercase whereas all others be handled as a regular word (only the first letter is capitalized)
 
   Bad:
 
@@ -937,7 +937,7 @@
 
 - **B44.** 🗄 Passwords are always hashed.
 
-- **B45.** 🗄 Migrations roll without errors in two ways (up and down) without any errors. Data consistency is preserved after every migration.
+- **B45.** 🗄 Migrations roll in two ways (up and down) without any errors. Data consistency is preserved after every migration.
 
 ## Advance
 
@@ -970,7 +970,7 @@
   Bad:
 
   ```typescript
-  const userName = user && user.user.name;
+  const userName = user && user.name;
   ```
 
   Good:
@@ -1227,31 +1227,9 @@
       <b>A9.</b> ⚛️ Callbacks passed to <code>props</code> are named with <code>on</code> prefix.
     </summary>
     <p>
-
   ```tsx
   <ListItem onClick={handleBtnClick} />
   ```
-
-    </p>
-    <p>
-  Alternative naming(default function naming) MAY be applied to:
-  - Render props
-  - Injecting behavior via HOCs
-  - Explicit side-effect based calls(fetching data or direct DOM interactions)
-  - Injected functions that are not event handlers
-
-  ```tsx
-  //HOC and injected behavior
-  const withModal = (ModalBody) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const handleClose = React.useCallback(() => setIsOpen(false), [setIsOpen]);
-    //some logic;
-
-    //NOTE: closeModal MIGHT be used as a name in this case, but onClose would be ok too
-    return isOpen ? <ModalBody closeModal={handleClose} /> : null;
-  };
-  ```
-
     </p>
   </details>
 
