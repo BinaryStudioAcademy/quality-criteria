@@ -531,7 +531,7 @@
 
 - <details>
     <summary>
-      <b>B27.</b> The code matches the style of the project.
+      <b>B26.</b> The code matches the style of the project.
     </summary>
     <p>
 
