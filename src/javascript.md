@@ -1262,6 +1262,10 @@
     </summary>
     <p>
 
+  Exceptions:
+
+  Ternary operator should not be nested.
+
   Bad:
 
   ```typescript
