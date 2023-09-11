@@ -1280,9 +1280,13 @@
 
 - <details>
     <summary>
-      <b>A12.</b> Where possible, the ternary operator is used in the assignment of a value instead of if. But ternary operator should not be nested.
+      <b>A12.</b> Where possible, the ternary operator is used in the assignment of a value instead of if.
     </summary>
     <p>
+
+  Exceptions:
+
+  Ternary operator should not be nested.
 
   Bad:
 
