@@ -611,10 +611,10 @@
   // 1. Imports
   import { getUniqueItems } from 'helpers';
 
-  // 2. Data structures/types
+  // 2. Types / Variables whose value is known before the program starts
   const COLORS = ['red', 'green', 'blue'];
 
-  // 3. Declaring variables whose value is known before the program starts
+  // 3. Variables whose value is known before main code execution
   const colorPicker = document.querySelector('.color-picker');
 
   // 4. Functions
