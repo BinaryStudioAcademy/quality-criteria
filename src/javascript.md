@@ -828,6 +828,8 @@
   const isPressed = element.getAttribute('aria-pressed');
   ```
 
+  `map` method returns a value, so either this value should be used, or the method should be replaced with `forEach`.
+
   Bad:
 
   ```typescript
@@ -851,7 +853,6 @@
 
   console.log(`${greeting} ${names.join(', ')}!`);
   ```
-
     </p>
   </details>
 
