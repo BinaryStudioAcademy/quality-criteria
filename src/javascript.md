@@ -1229,9 +1229,11 @@
       <b>A9.</b> ⚛️ Callbacks passed to <code>props</code> are named with <code>on</code> prefix.
     </summary>
     <p>
+
   ```tsx
   <ListItem onClick={handleBtnClick} />
   ```
+
     </p>
   </details>
 
